@@ -3,15 +3,19 @@
 This package gives you beautiful page transitions. 
 
 ## Usage 
-To use this plugin, add shared_preferences as a dependency in your pubspec.yaml file. 
+It is really easy to use! 
 
 ## Example 
 
 ```dart 
 Navigator.push(context,PageTransition(type:'fade', child: DetailScreen())); 
 ```
+## Type Of transition
+`fade, rightToLeft, leftToright, scale,transform, size`
 
-
+## Curves 
+You can use any type of CurvedAnimation Curves
+https://docs.flutter.io/flutter/animation/Curves-class.html 
 
 
 ## Getting Started
