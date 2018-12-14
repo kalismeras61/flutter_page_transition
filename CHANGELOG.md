@@ -12,3 +12,7 @@
 * New Transition added UpToDown and DownToUp,
 * transform transition name change with rotate
 * Add for Scale Transition alignment property
+
+## [1.0.0] - TODO: Bug fixes and stable version
+* some bug fixes
+* stable version

@@ -5,6 +5,7 @@ This package gives you beautiful page transitions.
 ## Usage 
 It is really easy to use! 
 
+![Screenshot](screen.png)
 ## Examples
 
 ```dart 

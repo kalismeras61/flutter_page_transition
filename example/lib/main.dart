@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:transition/transition.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,7 +22,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.blue,
       appBar: AppBar(
         title: Text('Page Transition'),
       ),
@@ -33,7 +32,7 @@ class MyHomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             RaisedButton(
-              child: Text('Left Slide Second Page'),
+              child: Text('Fade Second Page'),
               onPressed: () {
                 Navigator.push(
                     context, PageTransition(type: 'fade', child: SecondPage()));
@@ -52,21 +51,21 @@ class MyHomePage extends StatelessWidget {
                 Navigator.push(
                     context,
                     PageTransition(
-                        aligment: Alignment.bottomCenter,
+                        alignment: Alignment.bottomCenter,
                         curve: Curves.bounceOut,
                         type: 'size',
                         child: SecondPage()));
               },
             ),
             RaisedButton(
-              child: Text('Rotate Left To Right Slide Second Page'),
+              child: Text('Rotate Slide Second Page'),
               onPressed: () {
                 Navigator.push(
                     context,
                     PageTransition(
                         curve: Curves.bounceOut,
-                        type: 'rotateLeftToRight',
-                        aligment: Alignment.topCenter,
+                        type: 'rotate',
+                        alignment: Alignment.topCenter,
                         child: SecondPage()));
               },
             ),
@@ -78,7 +77,7 @@ class MyHomePage extends StatelessWidget {
                     PageTransition(
                         curve: Curves.linear,
                         type: 'scale',
-                        aligment: Alignment.topCenter,
+                        alignment: Alignment.topCenter,
                         child: SecondPage()));
               },
             ),

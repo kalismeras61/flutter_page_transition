@@ -1,5 +1,5 @@
 library page_transition;
-import 'package:flutter/material.dart';
+iimport 'package:flutter/material.dart';
 
 class PageTransition<T> extends PageRouteBuilder<T> {
   final Widget child;
@@ -12,7 +12,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
         @required this.child,
         @required this.type,
         this.curve = Curves.linear,
-        this.aligment})
+        this.alignment})
       : super(pageBuilder: (BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation) {
     return child;
@@ -102,26 +102,12 @@ class PageTransition<T> extends PageRouteBuilder<T> {
           child: child,
         );
         break;
-      case 'rotateRightToLeft':
+      case 'rotate':
         return new RotationTransition(
-          alignment: Alignment.bottomRight,
+          alignment: alignment,
           turns: animation,
           child: new ScaleTransition(
-            alignment: Alignment.bottomLeft,
-            scale: animation,
-            child: FadeTransition(
-              opacity: animation,
-              child: child,
-            ),
-          ),
-        );
-        break;
-      case 'rotateLeftToRight':
-        return new RotationTransition(
-          alignment: Alignment.bottomLeft,
-          turns: animation,
-          child: new ScaleTransition(
-            alignment: Alignment.bottomRight,
+            alignment: alignment,
             scale: animation,
             child: FadeTransition(
               opacity: animation,
@@ -132,6 +118,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
         break;
       case 'size':
         return Align(
+          alignment: alignment,
           child: SizeTransition(
             sizeFactor: CurvedAnimation(
               parent: animation,
