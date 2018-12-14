@@ -5,12 +5,14 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   final Widget child;
   final String type;
   final Curve curve;
+  final Alignment alignment;
 
   PageTransition(
       {Key key,
         @required this.child,
         @required this.type,
-        this.curve = Curves.linear})
+        this.curve = Curves.linear,
+        this.aligment})
       : super(pageBuilder: (BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation) {
     return child;
@@ -88,43 +90,40 @@ class PageTransition<T> extends PageRouteBuilder<T> {
         break;
       case 'scale':
         return ScaleTransition(
-          scale: new Tween<double>(
-            begin: 0.0,
-            end: 1.0,
-          ).animate(
-            CurvedAnimation(
-              parent: animation,
-              curve: Interval(
-                0.00,
-                0.50,
-                curve: curve,
-              ),
+          alignment: alignment,
+          scale: CurvedAnimation(
+            parent: animation,
+            curve: Interval(
+              0.00,
+              0.50,
+              curve: curve,
             ),
           ),
-          child: ScaleTransition(
-            scale: Tween<double>(
-              begin: 1.5,
-              end: 1.0,
-            ).animate(
-              CurvedAnimation(
-                parent: animation,
-                curve: Interval(
-                  0.50,
-                  1.00,
-                  curve: curve,
-                ),
-              ),
+          child: child,
+        );
+        break;
+      case 'rotateRightToLeft':
+        return new RotationTransition(
+          alignment: Alignment.bottomRight,
+          turns: animation,
+          child: new ScaleTransition(
+            alignment: Alignment.bottomLeft,
+            scale: animation,
+            child: FadeTransition(
+              opacity: animation,
+              child: child,
             ),
-            child: child,
           ),
         );
         break;
-      case 'transform':
+      case 'rotateLeftToRight':
         return new RotationTransition(
+          alignment: Alignment.bottomLeft,
           turns: animation,
           child: new ScaleTransition(
+            alignment: Alignment.bottomRight,
             scale: animation,
-            child: new FadeTransition(
+            child: FadeTransition(
               opacity: animation,
               child: child,
             ),

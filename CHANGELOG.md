@@ -8,5 +8,7 @@
 * Add new tag for Curve animation
 * Add new tag name 'type' for select type of transition
 
-## [0.0.3] - TODO: New Transition Added
-* New Transition added UpToDown and DownToUp
+## [0.0.3] - TODO: New Transition Added and some Changes
+* New Transition added UpToDown and DownToUp,
+* transform transition name change with rotate
+* Add for Scale Transition alignment property
