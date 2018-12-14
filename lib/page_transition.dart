@@ -1,5 +1,6 @@
 library page_transition;
-iimport 'package:flutter/material.dart';
+
+import 'package:flutter/material.dart';
 
 class PageTransition<T> extends PageRouteBuilder<T> {
   final Widget child;
