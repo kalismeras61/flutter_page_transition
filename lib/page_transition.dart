@@ -1,115 +1,124 @@
 library page_transition;
-
 import 'package:flutter/material.dart';
+import 'package:transition/transition.dart';
 
-class PageTransition<T> extends PageRouteBuilder<T> {
-  final Widget child;
-  final String type;
-  final Curve curve ;
+void main() => runApp(MyApp());
 
-  PageTransition({Key key, @required this.child, @required this.type, this.curve = Curves.linear})
-      : super(pageBuilder: (BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
-    return child;
-  }, transitionsBuilder: (BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      Widget child) {
-    switch (type) {
-      case 'fade':
-        return FadeTransition(opacity: animation, child: child);
-        break;
-      case 'rightToLeft':
-        return SlideTransition(
-          transformHitTests: true,
-          position: new Tween<Offset>(
-            begin: const Offset(1.0, 0.0),
-            end: Offset.zero,
-          ).animate(animation),
-          child: new SlideTransition(
-            position: new Tween<Offset>(
-              begin: Offset.zero,
-              end: const Offset(1.0, 0.0),
-            ).animate(secondaryAnimation),
-            child: child,
-          ),
-        );
-        break;
-      case 'leftToRight':
-        return SlideTransition(
-          transformHitTests: true,
-          position: Tween<Offset>(
-            begin: const Offset(-1.0, 0.0),
-            end: Offset.zero,
-          ).animate(animation),
-          child: new SlideTransition(
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
 
-            position: new Tween<Offset>(
-              begin: Offset.zero,
-              end: const Offset(-1.0, 0.0),
-            ).animate(secondaryAnimation),
-            child: child,
-          ),
-        );
-        break;
-      case 'scale':
-        return ScaleTransition(
-          scale: new Tween<double>(
-            begin: 0.0,
-            end: 1.0,
-          ).animate(
-            CurvedAnimation(
-              parent: animation,
-              curve: Interval(
-                0.00,
-                0.50,
-                curve: curve,
-              ),
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      backgroundColor: Colors.red,
+      appBar: AppBar(
+        title: Text('Page Transition'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            RaisedButton(
+              child: Text('Left Slide Second Page'),
+              onPressed: () {
+                Navigator.push(
+                    context, PageTransition(type: 'fade', child: SecondPage()));
+              },
             ),
-          ),
-          child: ScaleTransition(
-            scale: Tween<double>(
-              begin: 1.5,
-              end: 1.0,
-            ).animate(
-              CurvedAnimation(
-                parent: animation,
-                curve: Interval(
-                  0.50,
-                  1.00,
-                  curve:  curve,
-                ),
-              ),
+            RaisedButton(
+              child: Text('Left To Right Slide Second Page'),
+              onPressed: () {
+                Navigator.push(context,
+                    PageTransition(type: 'leftToRight', child: SecondPage()));
+              },
             ),
-            child: child,
-          ),
-        );
-        break;
-      case 'transform':
-        return new RotationTransition(
-          turns: animation,
-          child: new ScaleTransition(
-            scale: animation,
-            child: new FadeTransition(
-              opacity: animation,
-              child: child,
+            RaisedButton(
+              child: Text('Size Slide Second Page'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        curve: Curves.bounceOut,
+                        type: 'size',
+                        child: SecondPage()));
+              },
             ),
-          ),
-        );
-        break;
-      case 'size' :
-        return Align(
-          child: SizeTransition(
-            sizeFactor:
-            CurvedAnimation(
-              parent: animation,
-              curve: curve,
+            RaisedButton(
+              child: Text('Transform Slide Second Page'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        curve: Curves.bounceOut,
+                        type: 'transform',
+                        child: SecondPage()));
+              },
             ),
-            child: child,),
-        );
-        break;
-      default:
-        return FadeTransition(opacity: animation, child: child);
-    }
-  });
+            RaisedButton(
+              child: Text('Scale Slide Second Page'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        curve: Curves.linear,
+                        type: 'scale',
+                        child: SecondPage()));
+              },
+            ),
+            RaisedButton(
+              child: Text('Upto Down Second Page'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        curve: Curves.linear,
+                        type: 'upToDown',
+                        child: SecondPage()));
+              },
+            ),
+            RaisedButton(
+              child: Text('Down To Up Second Page'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        curve: Curves.linear,
+                        type: 'DownToUp',
+                        child: SecondPage()));
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Page Transition SecondPage'),
+      ),
+      body: Center(
+        child: Text('Second Page'),
+      ),
+    );
+  }
 }
