@@ -8,7 +8,7 @@ To use this plugin, add shared_preferences as a dependency in your pubspec.yaml 
 ## Example 
 
 ```dart 
-Navigator.push(context,PageTransition(tpye:'fade', child: DetailScreen())); 
+Navigator.push(context,PageTransition(type:'fade', child: DetailScreen())); 
 ```
 
 
