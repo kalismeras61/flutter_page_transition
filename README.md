@@ -11,7 +11,7 @@ It is really easy to use!
 Navigator.push(context,PageTransition(type:'fade', child: DetailScreen())); 
 ```
 ## Type Of transition
-`fade, rightToLeft, leftToright, scale,transform, size`
+`fade, rightToLeft, leftToright, UpToDown, DownToUp, scale,rotate, size`
 
 ## Curves 
 You can use any type of CurvedAnimation Curves
