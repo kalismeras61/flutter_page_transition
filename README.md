@@ -5,7 +5,8 @@ This package gives you beautiful page transitions.
 ## Usage 
 It is really easy to use! 
 
-![Screenshot](screen.png)
+<img src="http://www.yasinilhan.com/page_transition/screen.png" width="300" height="600" title="Screen Shoot">
+
 ## Examples
 
 ```dart 
