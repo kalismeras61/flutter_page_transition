@@ -14,7 +14,7 @@ This package gives you beautiful page transitions.
       alt="License: BSD-2-Clause" />
   </a>
 ## Demo
-<img src="http://www.yasinilhan.com/page_transition/page_transition.gif" width="320" height="600" title="Screen Shoot">
+<img src="http://www.yasinilhan.com/page_transition/transition.gif" width="320" height="600" title="Screen Shoot">
 
 ## Usage
 It is really easy to use!
