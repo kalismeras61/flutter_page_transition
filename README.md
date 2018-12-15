@@ -1,13 +1,30 @@
 # Flutter Page Transition Package
 
-This package gives you beautiful page transitions. 
-
-
+This package gives you beautiful page transitions.
+<br/><br/>
+</a>
+	<a href="https://flutter.io">
+    <img src="https://img.shields.io/badge/Platform-Flutter-yellow.svg"
+      alt="Platform" />
+  </a>
+[![pub package](https://img.shields.io/pub/v/page_transition.svg)](https://pub.dartlang.org/packages/page_transition) 
+</a>
+<a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/BSD-2-Clause.svg?style=flat-square"
+      alt="License: BSD-2-Clause" />
+  </a>
 ## Demo
-<img src="http://www.yasinilhan.com/page_transition/screen.png" width="300" height="600" title="Screen Shoot">
+<img src="http://www.yasinilhan.com/page_transition/page_transition.gif" width="320" height="600" title="Screen Shoot">
 
 ## Usage
 It is really easy to use!
+You should ensure that you add the `page_transition` as a dependency in your flutter project.
+
+```yaml
+dependencies:
+  page_transition: '^1.0.5'
+```
+Than you can use it with below examples.
 
 ```dart 
 Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: DetailScreen()));
@@ -48,6 +65,7 @@ After that you can use your new route like this:
 Navigator.pushNamed(context, '/second'); 
 ```
 
+
 ## Types of transitions
 * fade
 * rightToLeft
@@ -62,14 +80,14 @@ Navigator.pushNamed(context, '/second');
 You can use any type of CurvedAnimation [curves](https://docs.flutter.io/flutter/animation/Curves-class.html). 
 
 ## Alignments 
-You can use size, scale and rotate transform [alignment](https://docs.flutter.io/flutter/painting/Alignment-class.html ).
+You can use size, scale and rotate transform [alignment](https://docs.flutter.io/flutter/painting/Alignment-class.html)
 
-## Getting Started
-This project is a starting point for a Dart
-[package](https://flutter.io/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+Please make sure to update tests as appropriate.
+
+## License
+[BSD 2-Clause](https://opensource.org/licenses/BSD-2-Clause)
+
+
