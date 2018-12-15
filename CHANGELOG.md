@@ -13,6 +13,11 @@
 * transform transition name change with rotate
 * Add for Scale Transition alignment property
 
-## [1.0.0] - TODO: Bug fixes and stable version
+## [1.0.1] - TODO: Bug fixes and stable version
 * some bug fixes
 * stable version
+
+## [1.0.2] - TODO: New Property and README file improvement
+* New property is duration added now you can set duration of Transition
+* Readme.md file is improvement and showing how to use it for Named routes. 
+

@@ -18,7 +18,24 @@ Navigator.push(context,PageTransition(type:'scale',aligment: Alignment.bottomCen
 
 Navigator.push(context,PageTransition(type:'size', aligment: Alignment.bottomCenter,child: DetailScreen())); 
 
-Navigator.push(context,PageTransition(type:'rotate', aligment: Alignment.bottomCenter,child: DetailScreen())); 
+Navigator.push(context,PageTransition(type:'rotate', duration: Duration(second:1), child: DetailScreen())); 
+```
+##Usage for Named Route Parameters
+First you have to add MaterialApp property name onGenerateRoute like below and i cases you can Transition your new routes;
+```dart 
+  onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/second':
+            return PageTransition(child: SecondPage(), type: 'scale');
+            break;
+          default:
+            return null;
+        }
+      },
+```
+After that you can route new route
+```dart 
+Navigator.pushNamed(context, '/second'); 
 ```
 ## Type Of transition
 `fade, rightToLeft, leftToright, UpToDown, DownToUp, scale(with alignment) ,rotate(with alignment), size(with alignment)`
