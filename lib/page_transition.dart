@@ -2,9 +2,20 @@ library page_transition;
 
 import 'package:flutter/material.dart';
 
+enum PageTransitionType {
+  fade,
+  rightToLeft,
+  leftToRight,
+  upToDown,
+  downToUp,
+  scale,
+  rotate,
+  size,
+}
+
 class PageTransition<T> extends PageRouteBuilder<T> {
   final Widget child;
-  final String type;
+  final PageTransitionType type;
   final Curve curve;
   final Alignment alignment;
   final Duration duration;
@@ -27,10 +38,10 @@ class PageTransition<T> extends PageRouteBuilder<T> {
           Animation<double> secondaryAnimation,
           Widget child) {
         switch (type) {
-          case 'fade':
+          case PageTransitionType.fade:
             return FadeTransition(opacity: animation, child: child);
             break;
-          case 'rightToLeft':
+          case PageTransitionType.rightToLeft:
             return SlideTransition(
               transformHitTests: true,
               position: new Tween<Offset>(
@@ -46,7 +57,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
               ),
             );
             break;
-          case 'leftToRight':
+          case PageTransitionType.leftToRight:
             return SlideTransition(
               transformHitTests: true,
               position: Tween<Offset>(
@@ -62,7 +73,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
               ),
             );
             break;
-          case 'upToDown':
+          case PageTransitionType.upToDown:
             return SlideTransition(
               transformHitTests: true,
               position: Tween<Offset>(
@@ -78,7 +89,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
               ),
             );
             break;
-          case 'DownToUp':
+          case PageTransitionType.downToUp:
             return SlideTransition(
               transformHitTests: true,
               position: Tween<Offset>(
@@ -94,7 +105,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
               ),
             );
             break;
-          case 'scale':
+          case PageTransitionType.scale:
             return ScaleTransition(
               alignment: alignment,
               scale: CurvedAnimation(
@@ -108,7 +119,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
               child: child,
             );
             break;
-          case 'rotate':
+          case PageTransitionType.rotate:
             return new RotationTransition(
               alignment: alignment,
               turns: animation,
@@ -122,7 +133,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
               ),
             );
             break;
-          case 'size':
+          case PageTransitionType.size:
             return Align(
               alignment: alignment,
               child: SizeTransition(

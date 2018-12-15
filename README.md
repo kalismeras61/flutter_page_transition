@@ -10,15 +10,15 @@ It is really easy to use!
 ## Examples
 
 ```dart 
-Navigator.push(context,PageTransition(type:'fade', child: DetailScreen())); 
+Navigator.push(context,PageTransition(type: PageTransitionType.fade, child: DetailScreen()));
 
-Navigator.push(context,PageTransition(type:'leftToRigth', child: DetailScreen())); 
+Navigator.push(context,PageTransition(type: PageTransitionType.leftToRight, child: DetailScreen()));
 
-Navigator.push(context,PageTransition(type:'scale',aligment: Alignment.bottomCenter, child: DetailScreen())); 
+Navigator.push(context,PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter, child: DetailScreen()));
 
-Navigator.push(context,PageTransition(type:'size', aligment: Alignment.bottomCenter,child: DetailScreen())); 
+Navigator.push(context,PageTransition(type: PageTransitionType.size, alignment: Alignment.bottomCenter,child: DetailScreen()));
 
-Navigator.push(context,PageTransition(type:'rotate', duration: Duration(second:1), child: DetailScreen())); 
+Navigator.push(context,PageTransition(type: PageTransitionType.rotate, duration: Duration(second:1), child: DetailScreen()));
 ```
 ## Usage for Named Route Parameters
 First you have to add MaterialApp property name onGenerateRoute like below and in switch cases you can Transition your new routes;
@@ -26,7 +26,7 @@ First you have to add MaterialApp property name onGenerateRoute like below and i
   onGenerateRoute: (settings) {
         switch (settings.name) {
           case '/second':
-            return PageTransition(child: SecondPage(), type: 'scale');
+            return PageTransition(child: SecondPage(), type: PageTransitionType.scale);
             break;
           default:
             return null;
@@ -38,7 +38,7 @@ After that you can route new route
 Navigator.pushNamed(context, '/second'); 
 ```
 ## Type Of transition
-`fade, rightToLeft, leftToright, UpToDown, DownToUp, scale(with alignment) ,rotate(with alignment), size(with alignment)`
+`fade, rightToLeft, leftToRight, upToDown, downToUp, scale(with alignment), rotate(with alignment), size(with alignment)`
 
 ## Curves 
 You can use any type of CurvedAnimation Curves
