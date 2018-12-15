@@ -35,14 +35,14 @@ class MyHomePage extends StatelessWidget {
               child: Text('Fade Second Page'),
               onPressed: () {
                 Navigator.push(
-                    context, PageTransition(type: 'fade', child: SecondPage()));
+                    context, PageTransition(type: PageTransitionType.fade, child: SecondPage()));
               },
             ),
             RaisedButton(
               child: Text('Left To Right Slide Second Page'),
               onPressed: () {
                 Navigator.push(context,
-                    PageTransition(type: 'leftToRight', child: SecondPage()));
+                    PageTransition(type: PageTransitionType.leftToRight, child: SecondPage()));
               },
             ),
             RaisedButton(
@@ -53,7 +53,7 @@ class MyHomePage extends StatelessWidget {
                     PageTransition(
                         alignment: Alignment.bottomCenter,
                         curve: Curves.bounceOut,
-                        type: 'size',
+                        type: PageTransitionType.size,
                         child: SecondPage()));
               },
             ),
@@ -64,7 +64,7 @@ class MyHomePage extends StatelessWidget {
                     context,
                     PageTransition(
                         curve: Curves.bounceOut,
-                        type: 'rotate',
+                        type: PageTransitionType.rotate,
                         alignment: Alignment.topCenter,
                         child: SecondPage()));
               },
@@ -76,30 +76,30 @@ class MyHomePage extends StatelessWidget {
                     context,
                     PageTransition(
                         curve: Curves.linear,
-                        type: 'scale',
+                        type: PageTransitionType.scale,
                         alignment: Alignment.topCenter,
                         child: SecondPage()));
               },
             ),
             RaisedButton(
-              child: Text('Upto Down Second Page'),
+              child: Text('Up to Down Second Page'),
               onPressed: () {
                 Navigator.push(
                     context,
                     PageTransition(
                         curve: Curves.linear,
-                        type: 'upToDown',
+                        type: PageTransitionType.upToDown,
                         child: SecondPage()));
               },
             ),
             RaisedButton(
-              child: Text('Down To Up Second Page'),
+              child: Text('Down to Up Second Page'),
               onPressed: () {
                 Navigator.push(
                     context,
                     PageTransition(
                         curve: Curves.linear,
-                        type: 'DownToUp',
+                        type: PageTransitionType.downToUp,
                         child: SecondPage()));
               },
             ),
