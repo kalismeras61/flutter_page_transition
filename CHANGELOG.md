@@ -30,4 +30,4 @@
 ## [1.0.5] - Some changes
 * Change to README.md.
 ## [1.0.6] - Some changes
-* Performance updated.
+* performance improvement
