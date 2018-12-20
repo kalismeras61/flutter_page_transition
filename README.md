@@ -2,17 +2,11 @@
 
 This package gives you beautiful page transitions.
 <br/><br/>
-</a>
-	<a href="https://flutter.io">
-    <img src="https://img.shields.io/badge/Platform-Flutter-yellow.svg"
-      alt="Platform" />
-  </a>
+
+[![flutter platform](https://img.shields.io/badge/Platform-Flutter-yellow.svg)](https://flutter.io) 
 [![pub package](https://img.shields.io/pub/v/page_transition.svg)](https://pub.dartlang.org/packages/page_transition) 
-</a>
-<a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/BSD-2-Clause.svg?style=flat-square"
-      alt="License: BSD-2-Clause" />
-  </a>
+[![BSD-2-Clause](https://img.shields.io/badge/BSD-2-Clause.svg?style=flat-square)](https://opensource.org/licenses/) 
+
 ## Demo
 <img src="http://www.yasinilhan.com/page_transition/transition.gif" width="320" height="600" title="Screen Shoot">
 

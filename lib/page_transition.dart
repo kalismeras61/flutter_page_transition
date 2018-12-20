@@ -43,7 +43,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
             break;
           case PageTransitionType.rightToLeft:
             return SlideTransition(
-              transformHitTests: true,
+              transformHitTests: false,
               position: new Tween<Offset>(
                 begin: const Offset(1.0, 0.0),
                 end: Offset.zero,
@@ -59,7 +59,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
             break;
           case PageTransitionType.leftToRight:
             return SlideTransition(
-              transformHitTests: true,
+              transformHitTests: false,
               position: Tween<Offset>(
                 begin: const Offset(-1.0, 0.0),
                 end: Offset.zero,
@@ -75,7 +75,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
             break;
           case PageTransitionType.upToDown:
             return SlideTransition(
-              transformHitTests: true,
+              transformHitTests: false,
               position: Tween<Offset>(
                 begin: const Offset(0.0, -1.0),
                 end: Offset.zero,
@@ -91,7 +91,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
             break;
           case PageTransitionType.downToUp:
             return SlideTransition(
-              transformHitTests: true,
+              transformHitTests: false,
               position: Tween<Offset>(
                 begin: const Offset(0.0, 1.0),
                 end: Offset.zero,
