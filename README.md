@@ -12,11 +12,11 @@ This package gives you beautiful page transitions.
 
 ## Usage
 It is really easy to use!
-You should ensure that you add the `page_transition` as a dependency in your flutter project.
+You should ensure that you add the `flutter_lock_screen` as a dependency in your flutter project.
 
 ```yaml
 dependencies:
-  page_transition: '^1.0.6'
+  page_transition: '^1.0.0'
 ```
 Than you can use it with below examples.
 
