@@ -11,6 +11,8 @@ enum PageTransitionType {
   scale,
   rotate,
   size,
+  rightToLeftWithFade,
+  leftToRightWithFade,
 }
 
 class PageTransition<T> extends PageRouteBuilder<T> {
@@ -145,6 +147,42 @@ class PageTransition<T> extends PageRouteBuilder<T> {
               ),
             );
             break;
+          case PageTransitionType.rightToLeftWithFade:
+            return SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(1.0, 0.0),
+                end: Offset.zero,
+              ).animate(animation),
+              child: FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: Offset.zero,
+                    end: const Offset(1.0, 0.0),
+                  ).animate(secondaryAnimation),
+                  child: child,
+                ),
+              ),
+            );
+            break;
+          case PageTransitionType.leftToRightWithFade:
+            return SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(-1.0, 0.0),
+                end: Offset.zero,
+              ).animate(animation),
+              child: FadeTransition(
+                opacity: animation,
+                child: SlideTransition(
+                  position: Tween<Offset>(
+                    begin: Offset.zero,
+                    end: const Offset(-1.0, 0.0),
+                  ).animate(secondaryAnimation),
+                  child: child,
+                ),
+              ),
+            );
+            break;   
           default:
             return FadeTransition(opacity: animation, child: child);
         }
