@@ -36,6 +36,10 @@ Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment
 Navigator.push(context, PageTransition(type: PageTransitionType.size, alignment: Alignment.bottomCenter, child: DetailScreen()));
 
 Navigator.push(context, PageTransition(type: PageTransitionType.rotate, duration: Duration(second: 1), child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeftWithFade, child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.leftToRightWithFade, child: DetailScreen()));
 ```
 
 ## Usage for predefined routes
@@ -69,6 +73,8 @@ Navigator.pushNamed(context, '/second');
 * scale (with alignment)
 * rotate (with alignment)
 * size (with alignment)
+* rightToLeftWithFade,
+* leftToRightWithFade,
 
 ## Curves 
 You can use any type of CurvedAnimation [curves](https://docs.flutter.io/flutter/animation/Curves-class.html). 
