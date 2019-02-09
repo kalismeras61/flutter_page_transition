@@ -8,15 +8,15 @@ This package gives you beautiful page transitions.
 [![BSD-2-Clause](https://img.shields.io/badge/BSD-2-Clause.svg?style=flat-square)](https://opensource.org/licenses/) 
 
 ## Demo
-<img src="http://www.yasinilhan.com/page_transition/transition.gif" width="320" height="600" title="Screen Shoot">
+<img src="https://www.yasinilhan.com/page_transition/transition.gif" width="340" height="640" title="Screen Shoot">
 
 ## Usage
 It is really easy to use!
-You should ensure that you add the `flutter_lock_screen` as a dependency in your flutter project.
+You should ensure that you add the `page_transition` as a dependency in your flutter project.
 
 ```yaml
 dependencies:
-  page_transition: '^1.0.0'
+  page_transition: '^1.0.8'
 ```
 Than you can use it with below examples.
 
