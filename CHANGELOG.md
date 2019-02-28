@@ -31,3 +31,7 @@
 * Change to README.md.
 ## [1.0.6] - Some changes
 * performance improvement
+## [1.0.9] - Some changes
+* performance improvement
+* Upgrade package
+* Black screen appears problem solved.
