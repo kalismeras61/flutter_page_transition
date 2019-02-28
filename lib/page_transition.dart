@@ -53,7 +53,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                     child: new SlideTransition(
                       position: new Tween<Offset>(
                         begin: Offset.zero,
-                        end: const Offset(1.0, 0.0),
+                        end: const Offset(-1.0, 0.0),
                       ).animate(secondaryAnimation),
                       child: child,
                     ),
@@ -69,7 +69,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                     child: new SlideTransition(
                       position: new Tween<Offset>(
                         begin: Offset.zero,
-                        end: const Offset(-1.0, 0.0),
+                        end: const Offset(1.0, 0.0),
                       ).animate(secondaryAnimation),
                       child: child,
                     ),
@@ -85,7 +85,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                     child: new SlideTransition(
                       position: new Tween<Offset>(
                         begin: Offset.zero,
-                        end: const Offset(0.0, -1.0),
+                        end: const Offset(0.0, 1.0),
                       ).animate(secondaryAnimation),
                       child: child,
                     ),
@@ -101,7 +101,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                     child: new SlideTransition(
                       position: new Tween<Offset>(
                         begin: Offset.zero,
-                        end: const Offset(0.0, 1.0),
+                        end: const Offset(0.0, -1.0),
                       ).animate(secondaryAnimation),
                       child: child,
                     ),
@@ -158,7 +158,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                       child: SlideTransition(
                         position: Tween<Offset>(
                           begin: Offset.zero,
-                          end: const Offset(1.0, 0.0),
+                          end: const Offset(-1.0, 0.0),
                         ).animate(secondaryAnimation),
                         child: child,
                       ),
@@ -176,7 +176,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                       child: SlideTransition(
                         position: Tween<Offset>(
                           begin: Offset.zero,
-                          end: const Offset(-1.0, 0.0),
+                          end: const Offset(1.0, 0.0),
                         ).animate(secondaryAnimation),
                         child: child,
                       ),
