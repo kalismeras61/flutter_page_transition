@@ -35,3 +35,5 @@
 * performance improvement
 * Upgrade package
 * Black screen appears problem solved.
+## [1.1.0] - Some changes
+* Fix i18n file problem
