@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.blue,
       appBar: AppBar(
@@ -35,14 +34,19 @@ class MyHomePage extends StatelessWidget {
               child: Text('Fade Second Page'),
               onPressed: () {
                 Navigator.push(
-                    context, PageTransition(type: PageTransitionType.fade, child: SecondPage()));
+                    context,
+                    PageTransition(
+                        type: PageTransitionType.fade, child: SecondPage()));
               },
             ),
             RaisedButton(
               child: Text('Left To Right Slide Second Page'),
               onPressed: () {
-                Navigator.push(context,
-                    PageTransition(type: PageTransitionType.leftToRight, child: SecondPage()));
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        type: PageTransitionType.leftToRight,
+                        child: SecondPage()));
               },
             ),
             RaisedButton(

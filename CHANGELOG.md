@@ -3,7 +3,7 @@
 * TODO: Describe initial release.
 
 ## [0.0.2] -  New Class name and more
-* Change to class name PageTransition 
+* Change to class name PageTransition
 * Add new transition
 * Add new tag for Curve animation
 * Add new tag name 'type' for select type of transition
@@ -19,7 +19,7 @@
 
 ## [1.0.2] - New Property and README file improvement
 * New property is duration added now you can set duration of Transition
-* Readme.md file is improvement and showing how to use it for Named routes. 
+* Readme.md file is improvement and showing how to use it for Named routes.
 
 ## [1.0.3] - New Property and README file improvement
 * PageTransitionType added now you can choose easy to you transition type.
@@ -37,3 +37,5 @@
 * Black screen appears problem solved.
 ## [1.1.0] - Some changes
 * Fix i18n file problem
+## [1.1.1] -  Update latest dependency
+* Updated.

@@ -3,9 +3,9 @@
 This package gives you beautiful page transitions.
 <br/><br/>
 
-[![flutter platform](https://img.shields.io/badge/Platform-Flutter-yellow.svg)](https://flutter.io) 
-[![pub package](https://img.shields.io/pub/v/page_transition.svg)](https://pub.dartlang.org/packages/page_transition) 
-[![BSD-2-Clause](https://img.shields.io/badge/BSD-2-Clause.svg?style=flat-square)](https://opensource.org/licenses/) 
+[![flutter platform](https://img.shields.io/badge/Platform-Flutter-yellow.svg)](https://flutter.io)
+[![pub package](https://img.shields.io/pub/v/page_transition.svg)](https://pub.dartlang.org/packages/page_transition)
+[![BSD-2-Clause](https://img.shields.io/badge/BSD-2-Clause.svg?style=flat-square)](https://opensource.org/licenses/)
 
 ## Demo
 <img src="https://www.yasinilhan.com/page_transition/transition.gif" width="340" height="640" title="Screen Shoot">
@@ -16,11 +16,11 @@ You should ensure that you add the `page_transition` as a dependency in your flu
 
 ```yaml
 dependencies:
-  page_transition: '^1.1.0'
+  page_transition: '^1.1.1'
 ```
 Than you can use it with below examples.
 
-```dart 
+```dart
 Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: DetailScreen()));
 
 Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, child: DetailScreen()));
@@ -45,7 +45,7 @@ Navigator.push(context, PageTransition(type: PageTransitionType.leftToRightWithF
 ## Usage for predefined routes
 First, define the `onGenerateRoute` property in the `MaterialApp` widget like below and in switch cases you can transition to your new routes:
 
-```dart 
+```dart
   onGenerateRoute: (settings) {
     switch (settings.name) {
       case '/second':
@@ -59,8 +59,8 @@ First, define the `onGenerateRoute` property in the `MaterialApp` widget like be
 
 After that you can use your new route like this:
 
-```dart 
-Navigator.pushNamed(context, '/second'); 
+```dart
+Navigator.pushNamed(context, '/second');
 ```
 
 
@@ -76,10 +76,10 @@ Navigator.pushNamed(context, '/second');
 * rightToLeftWithFade,
 * leftToRightWithFade,
 
-## Curves 
-You can use any type of CurvedAnimation [curves](https://docs.flutter.io/flutter/animation/Curves-class.html). 
+## Curves
+You can use any type of CurvedAnimation [curves](https://docs.flutter.io/flutter/animation/Curves-class.html).
 
-## Alignments 
+## Alignments
 You can use size, scale and rotate transform [alignment](https://docs.flutter.io/flutter/painting/Alignment-class.html)
 
 ## Contributing
@@ -89,5 +89,3 @@ Please make sure to update tests as appropriate.
 
 ## License
 [BSD 2-Clause](https://opensource.org/licenses/BSD-2-Clause)
-
-
