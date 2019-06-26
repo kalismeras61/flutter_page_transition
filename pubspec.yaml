@@ -14,5 +14,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+dependency_overrides:
+  meta: 1.1.7    
 
 flutter:
