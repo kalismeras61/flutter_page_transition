@@ -39,3 +39,5 @@
 * Fix i18n file problem
 ## [1.1.1] -  Update latest dependency
 * Updated.
+## [1.1.3] -  Update latest dependency
+* Added route settings and fix example app.
