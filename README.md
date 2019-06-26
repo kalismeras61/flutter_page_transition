@@ -8,16 +8,19 @@ This package gives you beautiful page transitions.
 [![BSD-2-Clause](https://img.shields.io/badge/BSD-2-Clause.svg?style=flat-square)](https://opensource.org/licenses/)
 
 ## Demo
+
 <img src="https://www.yasinilhan.com/page_transition/transition.gif" width="340" height="640" title="Screen Shoot">
 
 ## Usage
+
 It is really easy to use!
 You should ensure that you add the `page_transition` as a dependency in your flutter project.
 
 ```yaml
 dependencies:
-  page_transition: '^1.1.3'
+  page_transition: "^1.1.4"
 ```
+
 Than you can use it with below examples.
 
 ```dart
@@ -43,6 +46,7 @@ Navigator.push(context, PageTransition(type: PageTransitionType.leftToRightWithF
 ```
 
 ## Usage for predefined routes
+
 First, define the `onGenerateRoute` property in the `MaterialApp` widget like below and in switch cases you can transition to your new routes:
 
 ```dart
@@ -63,29 +67,33 @@ After that you can use your new route like this:
 Navigator.pushNamed(context, '/second');
 ```
 
-
 ## Types of transitions
-* fade
-* rightToLeft
-* leftToRight
-* upToDown
-* downToUp
-* scale (with alignment)
-* rotate (with alignment)
-* size (with alignment)
-* rightToLeftWithFade,
-* leftToRightWithFade,
+
+- fade
+- rightToLeft
+- leftToRight
+- upToDown
+- downToUp
+- scale (with alignment)
+- rotate (with alignment)
+- size (with alignment)
+- rightToLeftWithFade,
+- leftToRightWithFade,
 
 ## Curves
+
 You can use any type of CurvedAnimation [curves](https://docs.flutter.io/flutter/animation/Curves-class.html).
 
 ## Alignments
+
 You can use size, scale and rotate transform [alignment](https://docs.flutter.io/flutter/painting/Alignment-class.html)
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 ## License
+
 [BSD 2-Clause](https://opensource.org/licenses/BSD-2-Clause)
