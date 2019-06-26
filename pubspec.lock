@@ -47,12 +47,12 @@ packages:
     source: hosted
     version: "0.12.5"
   meta:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.7"
+    version: "1.1.6"
   path:
     dependency: transitive
     description:
