@@ -24,12 +24,14 @@ class PageTransition<T> extends PageRouteBuilder<T> {
 
   PageTransition({
     Key key,
+    RouteSettings settings,
     @required this.child,
     @required this.type,
     this.curve = Curves.linear,
     this.alignment,
     this.duration = const Duration(milliseconds: 300),
   }) : super(
+            settings: settings,
             pageBuilder: (BuildContext context, Animation<double> animation,
                 Animation<double> secondaryAnimation) {
               return child;
