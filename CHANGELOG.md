@@ -58,3 +58,7 @@
 ## [1.1.3] - Update latest dependency
 
 - Added route settings and fix example app.
+
+## [1.1.4] - Update latest dependency
+
+- Delete route settings will be added as soon.

@@ -21,7 +21,6 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   final Curve curve;
   final Alignment alignment;
   final Duration duration;
-  final RouteSettings settings;
 
   PageTransition({
     Key key,
@@ -30,13 +29,11 @@ class PageTransition<T> extends PageRouteBuilder<T> {
     this.curve = Curves.linear,
     this.alignment,
     this.duration = const Duration(milliseconds: 300),
-    this.settings,
   }) : super(
             pageBuilder: (BuildContext context, Animation<double> animation,
                 Animation<double> secondaryAnimation) {
               return child;
             },
-            settings: settings,
             transitionDuration: duration,
             transitionsBuilder: (BuildContext context,
                 Animation<double> animation,
