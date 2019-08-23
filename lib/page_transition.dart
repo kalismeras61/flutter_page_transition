@@ -1,6 +1,6 @@
 library page_transition;
 
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 
 enum PageTransitionType {
   fade,
