@@ -62,3 +62,7 @@
 ## [1.1.4] - Update latest dependency
 
 - Delete route settings will be added as soon.
+
+## [1.1.5] - Update latest dependency and added RouteSettings
+
+- add route settings and now you can send arguments.

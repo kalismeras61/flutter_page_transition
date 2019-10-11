@@ -18,7 +18,7 @@ You should ensure that you add the `page_transition` as a dependency in your flu
 
 ```yaml
 dependencies:
-  page_transition: "^1.1.4"
+  page_transition: "^1.1.5"
 ```
 
 Than you can use it with below examples.
@@ -60,12 +60,39 @@ First, define the `onGenerateRoute` property in the `MaterialApp` widget like be
     }
   },
 ```
-
 After that you can use your new route like this:
 
 ```dart
 Navigator.pushNamed(context, '/second');
 ```
+
+
+### Usage predefined routes with RouteSettings
+
+First, define the `onGenerateRoute` property in the `MaterialApp`   widget like below and in switch cases you can transition to your new routes:
+
+```dart
+   onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/second':
+            return PageTransition(
+              child: SecondPage(),
+              type: PageTransitionType.scale,
+              settings: settings,
+            );
+            break;
+          default:
+            return null;
+        }
+      },
+```
+
+After that you can use your new route like this:
+
+```dart
+Navigator.pushNamed(context, '/second', arguments: "arguments data");
+```
+for more detail you can look example project.
 
 ## Types of transitions
 
