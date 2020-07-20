@@ -94,6 +94,19 @@ Navigator.pushNamed(context, '/second', arguments: "arguments data");
 ```
 for more detail you can look example project.
 
+### Usage routes with Inherited Theme
+set `ctx` with BuildContext. `ctx` mandatory when inheritTheme set to `true`
+```dart
+Navigator.push(
+      context,
+      PageTransition(
+        type: PageTransitionType.rightToLeft,
+        child: TargetPage(),
+        inheritTheme: true,
+        ctx: context),
+);
+```
+
 ## Types of transitions
 
 - fade
