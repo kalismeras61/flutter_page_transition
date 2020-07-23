@@ -66,3 +66,7 @@
 ## [1.1.5] - Update latest dependency and added RouteSettings
 
 - add route settings and now you can send arguments.
+
+## [1.1.6] - Update latest dependency and added InheretTheme
+
+- update dartdoc and added inheret theme
