@@ -21,19 +21,30 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   final Curve curve;
   final Alignment alignment;
   final Duration duration;
+  final BuildContext ctx;
+  final bool inheritTheme;
 
   PageTransition({
     Key key,
     @required this.child,
     @required this.type,
+    this.ctx,
+    this.inheritTheme = false,
     this.curve = Curves.linear,
     this.alignment,
     this.duration = const Duration(milliseconds: 300),
     RouteSettings settings,
-  }) : super(
+  })  : assert(inheritTheme ? ctx != null : true,
+            "'ctx' cannot be null when 'inheritTheme' is true, set ctx: context"),
+        super(
             pageBuilder: (BuildContext context, Animation<double> animation,
                 Animation<double> secondaryAnimation) {
-              return child;
+              return inheritTheme
+                  ? InheritedTheme.captureAll(
+                      ctx,
+                      child,
+                    )
+                  : child;
             },
             transitionDuration: duration,
             settings: settings,
