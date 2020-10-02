@@ -9,7 +9,7 @@ enum PageTransitionType {
   /// Left to right animation
   leftToRight,
 
-  /// Top the bottom animation 
+  /// Top the bottom animation
 
   topToBottom,
 
