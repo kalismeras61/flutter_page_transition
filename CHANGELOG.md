@@ -70,3 +70,11 @@
 ## [1.1.6] - Update latest dependency and added InheretTheme
 
 - update dartdoc and added inheret theme
+
+## [1.1.7] - Improvement doc, Renamed 2 transtion name, added Curves missing transitions and update example app
+
+- update dart doc
+- added Curve for missing transitions
+- Breaking change: 
+  - PageTransitionType.upToDown renamed PageTransitionType.topToBottom 
+  - PageTransitionType.downToUp renamed PageTransitionType.bottomToTop

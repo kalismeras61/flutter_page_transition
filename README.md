@@ -30,9 +30,9 @@ Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, chi
 
 Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: DetailScreen()));
 
-Navigator.push(context, PageTransition(type: PageTransitionType.upToDown, child: DetailScreen()));
+Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: DetailScreen()));
 
-Navigator.push(context, PageTransition(type: PageTransitionType.downToUp, child: DetailScreen()));
+Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTop, child: DetailScreen()));
 
 Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter, child: DetailScreen()));
 
