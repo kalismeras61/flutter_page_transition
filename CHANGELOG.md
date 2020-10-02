@@ -81,3 +81,6 @@
 
 ## [1.1.7+1] - Dartfmt
 - Runned dartfmt
+
+## [1.1.7+2] - Update
+- update readme
