@@ -78,3 +78,6 @@
 - Breaking change: 
   - PageTransitionType.upToDown renamed PageTransitionType.topToBottom 
   - PageTransitionType.downToUp renamed PageTransitionType.bottomToTop
+
+## [1.1.7+1] - Dartfmt
+- Runned dartfmt
