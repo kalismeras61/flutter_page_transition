@@ -29,6 +29,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   /// Optional inheret teheme
   final bool inheritTheme;
 
+  /// Page transition constructor. We can pass the next page as a child,
   PageTransition({
     Key key,
     @required this.child,
@@ -42,196 +43,252 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   })  : assert(inheritTheme ? ctx != null : true,
             "'ctx' cannot be null when 'inheritTheme' is true, set ctx: context"),
         super(
-            pageBuilder: (BuildContext context, Animation<double> animation,
-                Animation<double> secondaryAnimation) {
-              return inheritTheme
-                  ? InheritedTheme.captureAll(
-                      ctx,
-                      child,
-                    )
-                  : child;
-            },
-            transitionDuration: duration,
-            settings: settings,
-            transitionsBuilder: (BuildContext context,
-                Animation<double> animation,
-                Animation<double> secondaryAnimation,
-                Widget child) {
-              switch (type) {
-                case PageTransitionType.fade:
-                  return FadeTransition(opacity: animation, child: child);
-                  break;
+          pageBuilder: (BuildContext context, Animation<double> animation,
+              Animation<double> secondaryAnimation) {
+            return inheritTheme
+                ? InheritedTheme.captureAll(
+                    ctx,
+                    child,
+                  )
+                : child;
+          },
+          transitionDuration: duration,
+          settings: settings,
+          transitionsBuilder: (BuildContext context,
+              Animation<double> animation,
+              Animation<double> secondaryAnimation,
+              Widget child) {
+            switch (type) {
+              case PageTransitionType.fade:
+                return FadeTransition(opacity: animation, child: child);
+                break;
 
-                /// PageTransitionType.rightToLeft which is the give us right to left transition
-                case PageTransitionType.rightToLeft:
-                  return SlideTransition(
-                    transformHitTests: false,
-                    position: new Tween<Offset>(
-                      begin: const Offset(1.0, 0.0),
-                      end: Offset.zero,
-                    ).animate(animation),
-                    child: new SlideTransition(
-                      position: new Tween<Offset>(
-                        begin: Offset.zero,
-                        end: const Offset(-1.0, 0.0),
-                      ).animate(secondaryAnimation),
-                      child: child,
-                    ),
-                  );
-                  break;
-
-                /// PageTransitionType.leftToRight which is the give us left to right transition
-
-                case PageTransitionType.leftToRight:
-                  return SlideTransition(
-                    transformHitTests: false,
-                    position: Tween<Offset>(
-                      begin: const Offset(-1.0, 0.0),
-                      end: Offset.zero,
-                    ).animate(animation),
-                    child: new SlideTransition(
-                      position: new Tween<Offset>(
-                        begin: Offset.zero,
-                        end: const Offset(1.0, 0.0),
-                      ).animate(secondaryAnimation),
-                      child: child,
-                    ),
-                  );
-                  break;
-
-                /// PageTransitionType.upToDown which is the give us up to down transition
-
-                case PageTransitionType.upToDown:
-                  return SlideTransition(
-                    transformHitTests: false,
-                    position: Tween<Offset>(
-                      begin: const Offset(0.0, -1.0),
-                      end: Offset.zero,
-                    ).animate(animation),
-                    child: new SlideTransition(
-                      position: new Tween<Offset>(
-                        begin: Offset.zero,
-                        end: const Offset(0.0, 1.0),
-                      ).animate(secondaryAnimation),
-                      child: child,
-                    ),
-                  );
-                  break;
-
-                /// PageTransitionType.downToUp which is the give us down to up transition
-
-                case PageTransitionType.downToUp:
-                  return SlideTransition(
-                    transformHitTests: false,
-                    position: Tween<Offset>(
-                      begin: const Offset(0.0, 1.0),
-                      end: Offset.zero,
-                    ).animate(animation),
-                    child: new SlideTransition(
-                      position: new Tween<Offset>(
-                        begin: Offset.zero,
-                        end: const Offset(0.0, -1.0),
-                      ).animate(secondaryAnimation),
-                      child: child,
-                    ),
-                  );
-                  break;
-
-                /// PageTransitionType.scale which is the scale functionality for transition you can also use curve for this transition
-
-                case PageTransitionType.scale:
-                  return ScaleTransition(
-                    alignment: alignment,
-                    scale: CurvedAnimation(
+              /// PageTransitionType.rightToLeft which is the give us right to left transition
+              case PageTransitionType.rightToLeft:
+                return SlideTransition(
+                  transformHitTests: false,
+                  position: new Tween<Offset>(
+                    begin: const Offset(1.0, 0.0),
+                    end: Offset.zero,
+                  ).animate(
+                    CurvedAnimation(
                       parent: animation,
-                      curve: Interval(
-                        0.00,
-                        0.50,
+                      curve: curve,
+                    ),
+                  ),
+                  child: new SlideTransition(
+                    position: new Tween<Offset>(
+                      begin: Offset.zero,
+                      end: const Offset(-1.0, 0.0),
+                    ).animate(
+                      CurvedAnimation(
+                        parent: secondaryAnimation,
                         curve: curve,
                       ),
                     ),
                     child: child,
-                  );
-                  break;
+                  ),
+                );
+                break;
 
-                /// PageTransitionType.rotate which is the rotate functionality for transition you can also use alignment for this transition
+              /// PageTransitionType.leftToRight which is the give us left to right transition
 
-                case PageTransitionType.rotate:
-                  return new RotationTransition(
-                    alignment: alignment,
-                    turns: animation,
-                    child: new ScaleTransition(
-                      alignment: alignment,
-                      scale: animation,
-                      child: FadeTransition(
-                        opacity: animation,
-                        child: child,
+              case PageTransitionType.leftToRight:
+                return SlideTransition(
+                  transformHitTests: false,
+                  position: Tween<Offset>(
+                    begin: const Offset(-1.0, 0.0),
+                    end: Offset.zero,
+                  ).animate(
+                    CurvedAnimation(
+                      parent: animation,
+                      curve: curve,
+                    ),
+                  ),
+                  child: new SlideTransition(
+                    position: new Tween<Offset>(
+                      begin: Offset.zero,
+                      end: const Offset(1.0, 0.0),
+                    ).animate(
+                      CurvedAnimation(
+                        parent: secondaryAnimation,
+                        curve: curve,
                       ),
                     ),
-                  );
-                  break;
+                    child: child,
+                  ),
+                );
+                break;
 
-                /// PageTransitionType.size which is the rotate functionality for transition you can also use curve for this transition
+              /// PageTransitionType.upToDown which is the give us up to down transition
 
-                case PageTransitionType.size:
-                  return Align(
-                    alignment: alignment,
-                    child: SizeTransition(
-                      sizeFactor: CurvedAnimation(
-                        parent: animation,
+              case PageTransitionType.topToBottom:
+                return SlideTransition(
+                  transformHitTests: false,
+                  position: Tween<Offset>(
+                    begin: const Offset(0.0, -1.0),
+                    end: Offset.zero,
+                  ).animate(
+                    CurvedAnimation(
+                      parent: animation,
+                      curve: curve,
+                    ),
+                  ),
+                  child: new SlideTransition(
+                    position: new Tween<Offset>(
+                      begin: Offset.zero,
+                      end: const Offset(0.0, 1.0),
+                    ).animate(
+                      CurvedAnimation(
+                        parent: secondaryAnimation,
                         curve: curve,
+                      ),
+                    ),
+                    child: child,
+                  ),
+                );
+                break;
+
+              /// PageTransitionType.downToUp which is the give us down to up transition
+
+              case PageTransitionType.bottomToTop:
+                return SlideTransition(
+                  transformHitTests: false,
+                  position: Tween<Offset>(
+                    begin: const Offset(0.0, 1.0),
+                    end: Offset.zero,
+                  ).animate(
+                    CurvedAnimation(
+                      parent: animation,
+                      curve: curve,
+                    ),
+                  ),
+                  child: new SlideTransition(
+                    position: new Tween<Offset>(
+                      begin: Offset.zero,
+                      end: const Offset(0.0, -1.0),
+                    ).animate(
+                      CurvedAnimation(
+                        parent: secondaryAnimation,
+                        curve: curve,
+                      ),
+                    ),
+                    child: child,
+                  ),
+                );
+                break;
+
+              /// PageTransitionType.scale which is the scale functionality for transition you can also use curve for this transition
+
+              case PageTransitionType.scale:
+                return ScaleTransition(
+                  alignment: alignment,
+                  scale: CurvedAnimation(
+                    parent: animation,
+                    curve: Interval(
+                      0.00,
+                      0.50,
+                      curve: curve,
+                    ),
+                  ),
+                  child: child,
+                );
+                break;
+
+              /// PageTransitionType.rotate which is the rotate functionality for transition you can also use alignment for this transition
+
+              case PageTransitionType.rotate:
+                return new RotationTransition(
+                  alignment: alignment,
+                  turns: animation,
+                  child: new ScaleTransition(
+                    alignment: alignment,
+                    scale: animation,
+                    child: FadeTransition(
+                      opacity: animation,
+                      child: child,
+                    ),
+                  ),
+                );
+                break;
+
+              /// PageTransitionType.size which is the rotate functionality for transition you can also use curve for this transition
+
+              case PageTransitionType.size:
+                return Align(
+                  alignment: alignment,
+                  child: SizeTransition(
+                    sizeFactor: CurvedAnimation(
+                      parent: animation,
+                      curve: curve,
+                    ),
+                    child: child,
+                  ),
+                );
+                break;
+
+              /// PageTransitionType.rightToLeftWithFade which is the fade functionality from right o left
+
+              case PageTransitionType.rightToLeftWithFade:
+                return SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(1.0, 0.0),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: FadeTransition(
+                    opacity: animation,
+                    child: SlideTransition(
+                      position: Tween<Offset>(
+                        begin: Offset.zero,
+                        end: const Offset(-1.0, 0.0),
+                      ).animate(
+                        CurvedAnimation(
+                          parent: secondaryAnimation,
+                          curve: curve,
+                        ),
                       ),
                       child: child,
                     ),
-                  );
-                  break;
+                  ),
+                );
+                break;
 
-                /// PageTransitionType.rightToLeftWithFade which is the fade functionality from right o left
+              /// PageTransitionType.leftToRightWithFade which is the fade functionality from left o right with curve
 
-                case PageTransitionType.rightToLeftWithFade:
-                  return SlideTransition(
-                    position: Tween<Offset>(
-                      begin: const Offset(1.0, 0.0),
-                      end: Offset.zero,
-                    ).animate(animation),
-                    child: FadeTransition(
-                      opacity: animation,
-                      child: SlideTransition(
-                        position: Tween<Offset>(
-                          begin: Offset.zero,
-                          end: const Offset(-1.0, 0.0),
-                        ).animate(secondaryAnimation),
-                        child: child,
-                      ),
+              case PageTransitionType.leftToRightWithFade:
+                return SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(-1.0, 0.0),
+                    end: Offset.zero,
+                  ).animate(
+                    CurvedAnimation(
+                      parent: animation,
+                      curve: curve,
                     ),
-                  );
-                  break;
-
-                /// PageTransitionType.leftToRightWithFade which is the fade functionality from left o right
-
-                case PageTransitionType.leftToRightWithFade:
-                  return SlideTransition(
-                    position: Tween<Offset>(
-                      begin: const Offset(-1.0, 0.0),
-                      end: Offset.zero,
-                    ).animate(animation),
-                    child: FadeTransition(
-                      opacity: animation,
-                      child: SlideTransition(
-                        position: Tween<Offset>(
-                          begin: Offset.zero,
-                          end: const Offset(1.0, 0.0),
-                        ).animate(secondaryAnimation),
-                        child: child,
+                  ),
+                  child: FadeTransition(
+                    opacity: animation,
+                    child: SlideTransition(
+                      position: Tween<Offset>(
+                        begin: Offset.zero,
+                        end: const Offset(1.0, 0.0),
+                      ).animate(
+                        CurvedAnimation(
+                          parent: secondaryAnimation,
+                          curve: curve,
+                        ),
                       ),
+                      child: child,
                     ),
-                  );
-                  break;
+                  ),
+                );
+                break;
 
-                /// FadeTransitions which is the fade transition
+              /// FadeTransitions which is the fade transition
 
-                default:
-                  return FadeTransition(opacity: animation, child: child);
-              }
-            });
+              default:
+                return FadeTransition(opacity: animation, child: child);
+            }
+          },
+        );
 }
