@@ -23,6 +23,10 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   /// Durationf for your transition default is 300 ms
   final Duration duration;
 
+
+  /// Duration for your pop transition default is 300 ms
+  final Duration reverseDuration;
+
   /// Context for inheret theme
   final BuildContext ctx;
 
@@ -39,6 +43,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
     this.curve = Curves.linear,
     this.alignment,
     this.duration = const Duration(milliseconds: 300),
+    this.reverseDuration = const Duration(milliseconds: 300),
     RouteSettings settings,
   })  : assert(inheritTheme ? ctx != null : true,
             "'ctx' cannot be null when 'inheritTheme' is true, set ctx: context"),
@@ -52,7 +57,9 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                   )
                 : child;
           },
+          
           transitionDuration: duration,
+          reverseTransitionDuration: reverseDuration,
           settings: settings,
           transitionsBuilder: (BuildContext context,
               Animation<double> animation,

@@ -84,3 +84,5 @@
 
 ## [1.1.7+2] - Update
 - update readme
+## [1.1.7+3] - Added reverseTransitionDuration
+- Now you can set pop duration.
