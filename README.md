@@ -112,8 +112,8 @@ Navigator.push(
 - fade
 - rightToLeft
 - leftToRight
-- upToDown
-- downToUp
+- topToBottom
+- bottomToTop
 - scale (with alignment)
 - rotate (with alignment)
 - size (with alignment)
