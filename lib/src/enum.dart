@@ -36,4 +36,12 @@ enum PageTransitionType {
   /// Left to right with fading animation
 
   leftToRightWithFade,
+
+  /// Left to right slide as if joined
+
+  leftToRightJoined,
+
+  /// Right to left slide as if joined
+
+  rightToLeftJoined,
 }
