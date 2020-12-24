@@ -2,7 +2,6 @@ library page_transition;
 
 import 'package:flutter/material.dart';
 import 'enum.dart';
-import 'enum.dart';
 
 /// This package allows you amazing transition for your routes
 
