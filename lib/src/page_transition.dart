@@ -40,7 +40,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
     Key key,
     @required this.child,
     @required this.type,
-    this.childCurrent = null,
+    this.childCurrent,
     this.ctx,
     this.inheritTheme = false,
     this.curve = Curves.linear,
