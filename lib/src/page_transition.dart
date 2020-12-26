@@ -295,13 +295,13 @@ class PageTransition<T> extends PageRouteBuilder<T> {
 
               case PageTransitionType.rightToLeftJoined:
                 assert(childCurrent != null, """
-When using type "rightToLeftJoined" you need argument: 'childCurrent'
+                When using type "rightToLeftJoined" you need argument: 'childCurrent'
 
-example:
-  child: MyPage(),
-  childCurrent: this
+                example:
+                  child: MyPage(),
+                  childCurrent: this
 
-""");
+                """);
                 return Stack(
                   children: <Widget>[
                     SlideTransition(
@@ -334,13 +334,12 @@ example:
 
               case PageTransitionType.leftToRightJoined:
                 assert(childCurrent != null, """
-When using type "leftToRightJoined" you need argument: 'childCurrent'
+                When using type "leftToRightJoined" you need argument: 'childCurrent'
+                example:
+                  child: MyPage(),
+                  childCurrent: this
 
-example:
-  child: MyPage(),
-  childCurrent: this
-
-""");
+                """);
                 return Stack(
                   children: <Widget>[
                     SlideTransition(

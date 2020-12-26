@@ -86,3 +86,5 @@
 - update readme
 ## [1.1.7+3] - Added reverseTransitionDuration
 - Now you can set pop duration.
+## [1.1.7+4] - Added new Transition methods
+- leftToRightJoined and rightToLeftJoined 
