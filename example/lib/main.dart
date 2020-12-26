@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
               child: SecondPage(),
               type: PageTransitionType.fade,
               settings: settings,
+              reverseDuration: Duration(seconds: 3),
             );
             break;
           default:
