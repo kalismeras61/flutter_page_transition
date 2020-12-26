@@ -88,3 +88,5 @@
 - Now you can set pop duration.
 ## [1.1.7+4] - Added new Transition methods
 - leftToRightJoined and rightToLeftJoined 
+## [1.1.7+5] - Remove null explicitly initialize
+-  Remove null explicitly initialize
