@@ -4,7 +4,7 @@ version: 1.1.7+4
 homepage: https://github.com/kalismeras61/flutter_page_transition
 
 environment:
-  sdk: ">=2.3.0 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
 
 dependencies:
   flutter:
