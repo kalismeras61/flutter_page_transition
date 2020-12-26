@@ -119,6 +119,8 @@ Navigator.push(
 - size (with alignment)
 - rightToLeftWithFade,
 - leftToRightWithFade,
+- leftToRightJoined,
+- rightToLeftJoined,
 
 ## Curves
 

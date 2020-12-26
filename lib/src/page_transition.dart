@@ -10,6 +10,9 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   /// Child for your next page
   final Widget child;
 
+  /// Child for your next page
+  final Widget childCurrent;
+
   /// Transition types
   ///  fade,rightToLeft,leftToRight, upToDown,downToUp,scale,rotate,size,rightToLeftWithFade,leftToRightWithFade
   final PageTransitionType type;
@@ -22,7 +25,6 @@ class PageTransition<T> extends PageRouteBuilder<T> {
 
   /// Durationf for your transition default is 300 ms
   final Duration duration;
-
 
   /// Duration for your pop transition default is 300 ms
   final Duration reverseDuration;
@@ -38,6 +40,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
     Key key,
     @required this.child,
     @required this.type,
+    this.childCurrent = null,
     this.ctx,
     this.inheritTheme = false,
     this.curve = Curves.linear,
@@ -57,7 +60,6 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                   )
                 : child;
           },
-          
           transitionDuration: duration,
           reverseTransitionDuration: reverseDuration,
           settings: settings,
@@ -288,6 +290,84 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                       child: child,
                     ),
                   ),
+                );
+                break;
+
+              case PageTransitionType.rightToLeftJoined:
+                assert(childCurrent != null, """
+When using type "rightToLeftJoined" you need argument: 'childCurrent'
+
+example:
+  child: MyPage(),
+  childCurrent: this
+
+""");
+                return Stack(
+                  children: <Widget>[
+                    SlideTransition(
+                      position: new Tween<Offset>(
+                        begin: const Offset(0.0, 0.0),
+                        end: const Offset(-1.0, 0.0),
+                      ).animate(
+                        CurvedAnimation(
+                          parent: animation,
+                          curve: curve,
+                        ),
+                      ),
+                      child: childCurrent,
+                    ),
+                    SlideTransition(
+                      position: new Tween<Offset>(
+                        begin: const Offset(1.0, 0.0),
+                        end: const Offset(0.0, 0.0),
+                      ).animate(
+                        CurvedAnimation(
+                          parent: animation,
+                          curve: curve,
+                        ),
+                      ),
+                      child: child,
+                    )
+                  ],
+                );
+                break;
+
+              case PageTransitionType.leftToRightJoined:
+                assert(childCurrent != null, """
+When using type "leftToRightJoined" you need argument: 'childCurrent'
+
+example:
+  child: MyPage(),
+  childCurrent: this
+
+""");
+                return Stack(
+                  children: <Widget>[
+                    SlideTransition(
+                      position: new Tween<Offset>(
+                        begin: const Offset(-1.0, 0.0),
+                        end: const Offset(0.0, 0.0),
+                      ).animate(
+                        CurvedAnimation(
+                          parent: animation,
+                          curve: curve,
+                        ),
+                      ),
+                      child: child,
+                    ),
+                    SlideTransition(
+                      position: new Tween<Offset>(
+                        begin: const Offset(0.0, 0.0),
+                        end: const Offset(1.0, 0.0),
+                      ).animate(
+                        CurvedAnimation(
+                          parent: animation,
+                          curve: curve,
+                        ),
+                      ),
+                      child: childCurrent,
+                    )
+                  ],
                 );
                 break;
 

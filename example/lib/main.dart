@@ -176,6 +176,37 @@ class MyHomePage extends StatelessWidget {
               },
             ),
             RaisedButton(
+              child: Text('Right to Left Joined'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        alignment: Alignment.bottomCenter,
+                        curve: Curves.easeInOut,
+                        duration: Duration(milliseconds: 600),
+                        reverseDuration: Duration(milliseconds: 600),
+                        type: PageTransitionType.rightToLeftJoined,
+                        child: SecondPage(),
+                        childCurrent: this));
+              },
+            ),
+            RaisedButton(
+              child: Text('Left to Right Joined'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.leftToRightJoined,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            RaisedButton(
               child: Text('PushNamed With arguments'),
               onPressed: () {
                 Navigator.pushNamed(
