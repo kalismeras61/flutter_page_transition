@@ -1,12 +1,13 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=/Users/yasinilhan/flutter
 FLUTTER_APPLICATION_PATH=/Users/yasinilhan/data/Projects/myplugins/flutter_page_transition/example
-FLUTTER_TARGET=lib/main.dart
+FLUTTER_TARGET=/Users/yasinilhan/data/Projects/myplugins/flutter_page_transition/example/lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
 FLUTTER_BUILD_NAME=1.0.0
 FLUTTER_BUILD_NUMBER=1
+DART_DEFINES=flutter.inspector.structuredErrors%3Dtrue
 DART_OBFUSCATION=false
-TRACK_WIDGET_CREATION=false
+TRACK_WIDGET_CREATION=true
 TREE_SHAKE_ICONS=false
-PACKAGE_CONFIG=.packages
+PACKAGE_CONFIG=/Users/yasinilhan/data/Projects/myplugins/flutter_page_transition/example/.dart_tool/package_config.json

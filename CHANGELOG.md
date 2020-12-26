@@ -88,3 +88,5 @@
 - Now you can set pop duration.
 ## [1.1.7+4] - Added new Transition methods
 - leftToRightJoined and rightToLeftJoined 
+## [2.0.0-nullsafety.0 - Adds null safety check.
+- Adds null safety check.

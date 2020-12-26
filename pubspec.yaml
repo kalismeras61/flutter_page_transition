@@ -1,7 +1,6 @@
 name: page_transition
 description: Flutter Page Transition Package which is the transition second page
 version: 2.0.0-nullsafety.0
-author: Yasin ilhan <yasinilhan61@gmail.com>
 homepage: https://github.com/kalismeras61/flutter_page_transition
 
 environment:
@@ -10,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  test: ^1.15.7
 
 
 dev_dependencies:
