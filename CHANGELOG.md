@@ -90,3 +90,4 @@
 - leftToRightJoined and rightToLeftJoined 
 ## [2.0.0-nullsafety.0 - Adds null safety check.
 - Adds null safety check.
+## [2.0.1-nullsafety.0 - remove test package
