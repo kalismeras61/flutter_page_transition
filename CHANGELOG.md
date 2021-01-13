@@ -90,3 +90,5 @@
 - leftToRightJoined and rightToLeftJoined 
 ## [1.1.7+5] - Remove null explicitly initialize
 -  Remove null explicitly initialize
+## [1.1.7+6] - Fix issues
+-  Fix incorrect transition and hero animation issue.
