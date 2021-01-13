@@ -239,7 +239,48 @@ class SecondPage extends StatelessWidget {
         title: Text(args ?? "Page Transition Plugin"),
       ),
       body: Center(
-        child: Text('Second Page'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('Second Page'),
+            SizedBox(height: 10),
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                    duration: Duration(milliseconds: 300),
+                    reverseDuration: Duration(milliseconds: 300),
+                    type: PageTransitionType.topToBottom,
+                    child: ThirdPage(),
+                  ),
+                );
+              },
+              child: Text('Go Third Page'),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// third page
+class ThirdPage extends StatelessWidget {
+  /// Page Title
+  final String title;
+
+  /// second page constructor
+  const ThirdPage({Key key, this.title}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Page Transition Plugin"),
+      ),
+      body: Center(
+        child: Text('ThirdPage Page'),
       ),
     );
   }
