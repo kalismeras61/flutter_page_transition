@@ -54,6 +54,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
           },
           transitionDuration: duration,
           settings: settings,
+          opaque: false,
           transitionsBuilder: (BuildContext context,
               Animation<double> animation,
               Animation<double> secondaryAnimation,
