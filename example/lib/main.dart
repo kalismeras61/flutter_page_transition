@@ -47,7 +47,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            RaisedButton(
+            ElevatedButton(
               child: Text('Fade Second Page - Default'),
               onPressed: () {
                 Navigator.push(
@@ -59,7 +59,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Left To Right Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -71,7 +71,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Left To Right with Fade Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -84,7 +84,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Right To Left Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -96,7 +96,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Right To Left with Fade Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -108,7 +108,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Top to Bottom Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -121,7 +121,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Bottom to Top Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -134,7 +134,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Scale Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -148,7 +148,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Rotate Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -162,7 +162,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Size Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -176,7 +176,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Right to Left Joined'),
               onPressed: () {
                 Navigator.push(
@@ -191,7 +191,7 @@ class MyHomePage extends StatelessWidget {
                         childCurrent: this));
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Left to Right Joined'),
               onPressed: () {
                 Navigator.push(
@@ -207,7 +207,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('PushNamed With arguments'),
               onPressed: () {
                 Navigator.pushNamed(
