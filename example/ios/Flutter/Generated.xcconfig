@@ -9,4 +9,4 @@ FLUTTER_BUILD_NUMBER=1
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=false
 TREE_SHAKE_ICONS=false
-PACKAGE_CONFIG=/Users/yasinilhan/data/Projects/myplugins/flutter_page_transition/example/.dart_tool/package_config.json
+PACKAGE_CONFIG=.packages

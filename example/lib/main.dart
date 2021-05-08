@@ -245,7 +245,7 @@ class SecondPage extends StatelessWidget {
           children: [
             Text('Second Page'),
             SizedBox(height: 10),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
