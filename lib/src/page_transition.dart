@@ -20,20 +20,23 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   /// Curves for transitions
   final Curve curve;
 
-  /// Aligment for transitions
+  /// Alignment for transitions
   final Alignment? alignment;
 
-  /// Durationf for your transition default is 300 ms
+  /// Duration for your transition default is 300 ms
   final Duration duration;
 
   /// Duration for your pop transition default is 300 ms
   final Duration reverseDuration;
 
-  /// Context for inheret theme
+  /// Context for inherit theme
   final BuildContext? ctx;
 
-  /// Optional inheret teheme
+  /// Optional inherit theme
   final bool inheritTheme;
+
+  /// Optional fullscreen dialog mode
+  final bool fullscreenDialog;
 
   /// Page transition constructor. We can pass the next page as a child,
   PageTransition({
@@ -47,6 +50,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
     this.alignment,
     this.duration = const Duration(milliseconds: 300),
     this.reverseDuration = const Duration(milliseconds: 300),
+    this.fullscreenDialog = false,
     RouteSettings? settings,
   })  : assert(inheritTheme ? ctx != null : true,
             "'ctx' cannot be null when 'inheritTheme' is true, set ctx: context"),
@@ -64,6 +68,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
           reverseTransitionDuration: reverseDuration,
           settings: settings,
           maintainState: true,
+          fullscreenDialog: fullscreenDialog,
           transitionsBuilder: (BuildContext context,
               Animation<double> animation,
               Animation<double> secondaryAnimation,
