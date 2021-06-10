@@ -88,8 +88,10 @@
 - Now you can set pop duration.
 ## [1.1.7+4] - Added new Transition methods
 - leftToRightJoined and rightToLeftJoined 
-## [2.0.0-nullsafety.0 - Adds null safety check.
+## [2.0.0-nullsafety.0] - Adds null safety check.
 - Adds null safety check.
-## [2.0.1-nullsafety.0 - remove test package
+## [2.0.1-nullsafety.0] - remove test package
 - update example file and sdk
-## [2.0.2 - update example file and sdk
+## [2.0.2] - update example file and sdk
+## [2.0.3] - add fullscreen dialog mode´
+- Set the `fullscreenDialog` to `true` to use this feature
