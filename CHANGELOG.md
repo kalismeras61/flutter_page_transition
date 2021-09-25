@@ -93,5 +93,7 @@
 ## [2.0.1-nullsafety.0] - remove test package
 - update example file and sdk
 ## [2.0.2] - update example file and sdk
-## [2.0.3] - add fullscreen dialog mode´
+## [2.0.3] - add fullscreen dialog mode
 - Set the `fullscreenDialog` to `true` to use this feature
+## [2.0.4] - add opaque
+- Set the `opaque` to `true` to use this feature

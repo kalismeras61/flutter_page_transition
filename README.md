@@ -18,7 +18,7 @@ You should ensure that you add the `page_transition` as a dependency in your flu
 
 ```yaml
 dependencies:
-  page_transition: "^2.0.2"
+  page_transition: "^2.0.4"
 ```
 
 Than you can use it with below examples.
