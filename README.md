@@ -20,6 +20,7 @@ You should ensure that you add the `page_transition` as a dependency in your flu
 dependencies:
   page_transition: "^2.0.4"
 ```
+Would you prefer a video tutorial instead? Check out (Johannes Milke's tutorial) [https://www.youtube.com/watch?v=q-e5t3qnB_M&t=1s]
 
 Than you can use it with below examples.
 
