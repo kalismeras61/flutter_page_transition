@@ -1,6 +1,7 @@
 library page_transition;
 
 import 'package:flutter/material.dart';
+
 import 'enum.dart';
 
 /// This package allows you amazing transition for your routes
@@ -72,7 +73,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
           settings: settings,
           maintainState: true,
           opaque: opaque,
-          fullscreenDialog: fullscreenDialog, 
+          fullscreenDialog: fullscreenDialog,
           transitionsBuilder: (BuildContext context,
               Animation<double> animation,
               Animation<double> secondaryAnimation,
@@ -294,6 +295,63 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                       ),
                       child: child,
                     ),
+                    SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(0.0, 0.0),
+                        end: const Offset(1.0, 0.0),
+                      ).animate(
+                        CurvedAnimation(
+                          parent: animation,
+                          curve: curve,
+                        ),
+                      ),
+                      child: childCurrent,
+                    )
+                  ],
+                );
+                // ignore: dead_code
+                break;
+
+              case PageTransitionType.rightToLeftPop:
+                assert(childCurrent != null, """
+                When using type "rightToLeftPop" you need argument: 'childCurrent'
+
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+                return Stack(
+                  children: <Widget>[
+                    child,
+                    SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(0.0, 0.0),
+                        end: const Offset(-1.0, 0.0),
+                      ).animate(
+                        CurvedAnimation(
+                          parent: animation,
+                          curve: curve,
+                        ),
+                      ),
+                      child: childCurrent,
+                    ),
+                  ],
+                );
+                // ignore: dead_code
+                break;
+
+              case PageTransitionType.leftToRightPop:
+                assert(childCurrent != null, """
+                When using type "leftToRightPop" you need argument: 'childCurrent'
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+                return Stack(
+                  children: <Widget>[
+                    child,
                     SlideTransition(
                       position: Tween<Offset>(
                         begin: const Offset(0.0, 0.0),

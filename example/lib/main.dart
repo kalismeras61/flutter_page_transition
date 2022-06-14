@@ -208,6 +208,37 @@ class MyHomePage extends StatelessWidget {
               },
             ),
             ElevatedButton(
+              child: Text('Right to Left Pop'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        alignment: Alignment.bottomCenter,
+                        curve: Curves.easeInOut,
+                        duration: Duration(milliseconds: 600),
+                        reverseDuration: Duration(milliseconds: 600),
+                        type: PageTransitionType.rightToLeftPop,
+                        child: SecondPage(),
+                        childCurrent: this));
+              },
+            ),
+            ElevatedButton(
+              child: Text('Left to Right Pop'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.leftToRightPop,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            ElevatedButton(
               child: Text('PushNamed With arguments'),
               onPressed: () {
                 Navigator.pushNamed(
