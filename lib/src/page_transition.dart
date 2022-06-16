@@ -135,6 +135,9 @@ class PageTransition<T> extends PageRouteBuilder<T> {
               /// PageTransitionType.scale which is the scale functionality for transition you can also use curve for this transition
 
               case PageTransitionType.scale:
+                assert(alignment != null, """
+                When using type "scale" you need argument: 'alignment'
+                """);
                 return ScaleTransition(
                   alignment: alignment!,
                   scale: CurvedAnimation(
