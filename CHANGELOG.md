@@ -97,3 +97,7 @@
 - Set the `fullscreenDialog` to `true` to use this feature
 ## [2.0.4] - add opaque
 - Set the `opaque` to `true` to use this feature
+## [2.0.5] - add opaque
+- Set the `opaque` to `true` to use this feature
+## [2.0.6] - add opaque
+- Added leftToRightPop, rightToLeftPop
