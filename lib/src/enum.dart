@@ -45,6 +45,14 @@ enum PageTransitionType {
 
   rightToLeftJoined,
 
+  /// Top to bottom as if joined
+
+  topToBottomJoined,
+
+  /// Bottom to top as if joined
+
+  bottomToTopJoined,
+
   /// Pop the current screen left to right
 
   leftToRightPop,
@@ -52,4 +60,12 @@ enum PageTransitionType {
   /// Pop the current screen right to left
 
   rightToLeftPop,
+
+  /// Pop the current screen top to bottom
+
+  topToBottomPop,
+
+  /// Pop the current screen bottom to top
+
+  bottomToTopPop,
 }

@@ -349,6 +349,84 @@ class PageTransition<T> extends PageRouteBuilder<T> {
         // ignore: dead_code
         break;
 
+      case PageTransitionType.topToBottomJoined:
+        assert(childCurrent != null, """
+                When using type "topToBottomJoined" you need argument: 'childCurrent'
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+        return Stack(
+          children: <Widget>[
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, -1.0),
+                end: const Offset(0.0, 0.0),
+              ).animate(
+                CurvedAnimation(
+                  parent: animation,
+                  curve: curve,
+                ),
+              ),
+              child: child,
+            ),
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(0.0, 1.0),
+              ).animate(
+                CurvedAnimation(
+                  parent: animation,
+                  curve: curve,
+                ),
+              ),
+              child: childCurrent,
+            )
+          ],
+        );
+        // ignore: dead_code
+        break;
+
+      case PageTransitionType.bottomToTopJoined:
+        assert(childCurrent != null, """
+                When using type "bottomToTopJoined" you need argument: 'childCurrent'
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+        return Stack(
+          children: <Widget>[
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 1.0),
+                end: const Offset(0.0, 0.0),
+              ).animate(
+                CurvedAnimation(
+                  parent: animation,
+                  curve: curve,
+                ),
+              ),
+              child: child,
+            ),
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(0.0, -1.0),
+              ).animate(
+                CurvedAnimation(
+                  parent: animation,
+                  curve: curve,
+                ),
+              ),
+              child: childCurrent,
+            )
+          ],
+        );
+        // ignore: dead_code
+        break;
+
       case PageTransitionType.rightToLeftPop:
         assert(childCurrent != null, """
                 When using type "rightToLeftPop" you need argument: 'childCurrent'
@@ -393,6 +471,62 @@ class PageTransition<T> extends PageRouteBuilder<T> {
               position: Tween<Offset>(
                 begin: const Offset(0.0, 0.0),
                 end: const Offset(1.0, 0.0),
+              ).animate(
+                CurvedAnimation(
+                  parent: animation,
+                  curve: curve,
+                ),
+              ),
+              child: childCurrent,
+            )
+          ],
+        );
+        // ignore: dead_code
+        break;
+
+      case PageTransitionType.topToBottomPop:
+        assert(childCurrent != null, """
+                When using type "topToBottomPop" you need argument: 'childCurrent'
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+        return Stack(
+          children: <Widget>[
+            child,
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(0.0, 1.0),
+              ).animate(
+                CurvedAnimation(
+                  parent: animation,
+                  curve: curve,
+                ),
+              ),
+              child: childCurrent,
+            )
+          ],
+        );
+        // ignore: dead_code
+        break;
+
+      case PageTransitionType.bottomToTopPop:
+        assert(childCurrent != null, """
+                When using type "bottomToTopPop" you need argument: 'childCurrent'
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+        return Stack(
+          children: <Widget>[
+            child,
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(0.0, -1.0),
               ).animate(
                 CurvedAnimation(
                   parent: animation,

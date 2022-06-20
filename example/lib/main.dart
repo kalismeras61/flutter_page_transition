@@ -219,6 +219,38 @@ class MyHomePage extends StatelessWidget {
               },
             ),
             ElevatedButton(
+              child: Text('Top to Bottom Joined'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.topToBottomJoined,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Bottom to Top Joined'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.bottomToTopJoined,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            ElevatedButton(
               child: Text('Right to Left Pop'),
               onPressed: () {
                 Navigator.push(
@@ -244,6 +276,38 @@ class MyHomePage extends StatelessWidget {
                       duration: Duration(milliseconds: 600),
                       reverseDuration: Duration(milliseconds: 600),
                       type: PageTransitionType.leftToRightPop,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Top to Bottom Pop'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.topToBottomPop,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Bottom to Top Pop'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.bottomToTopPop,
                       child: SecondPage(),
                       childCurrent: this),
                 );
