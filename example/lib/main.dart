@@ -43,9 +43,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Page Transition'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
             ElevatedButton(
               child: Text('Fade Second Page - Default'),
@@ -72,6 +70,19 @@ class MyHomePage extends StatelessWidget {
               },
             ),
             ElevatedButton(
+              child: Text('Right To Left Transition Second Page Ios SwipeBack'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.rightToLeft,
+                    isIos: true,
+                    child: SecondPage(),
+                  ),
+                );
+              },
+            ),
+            ElevatedButton(
               child: Text('Left To Right with Fade Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -90,7 +101,7 @@ class MyHomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   PageTransition(
-                    type: PageTransitionType.rightToLeft,
+                    type: PageTransitionType.leftToRight,
                     child: SecondPage(),
                   ),
                 );
