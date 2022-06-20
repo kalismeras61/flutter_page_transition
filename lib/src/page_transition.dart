@@ -92,6 +92,10 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   Widget buildTransitions(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation, Widget child) {
     switch (type) {
+      case PageTransitionType.theme:
+        return Theme.of(context).pageTransitionsTheme.buildTransitions(
+            this, context, animation, secondaryAnimation, child);
+
       case PageTransitionType.fade:
         if (isIos) {
           var fade = FadeTransition(opacity: animation, child: child);
@@ -190,6 +194,9 @@ class PageTransition<T> extends PageRouteBuilder<T> {
       /// PageTransitionType.rotate which is the rotate functionality for transition you can also use alignment for this transition
 
       case PageTransitionType.rotate:
+        assert(alignment != null, """
+                When using type "RotationTransition" you need argument: 'alignment'
+                """);
         return new RotationTransition(
           alignment: alignment!,
           turns: animation,
@@ -208,6 +215,9 @@ class PageTransition<T> extends PageRouteBuilder<T> {
       /// PageTransitionType.size which is the rotate functionality for transition you can also use curve for this transition
 
       case PageTransitionType.size:
+        assert(alignment != null, """
+                When using type "size" you need argument: 'alignment'
+                """);
         return Align(
           alignment: alignment!,
           child: SizeTransition(

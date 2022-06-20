@@ -1,5 +1,8 @@
 /// Transition enum
 enum PageTransitionType {
+  /// theme default
+  theme,
+
   /// Fade Animation
   fade,
 
