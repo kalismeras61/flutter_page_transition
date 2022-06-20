@@ -124,3 +124,8 @@
 ## [2.0.7] - added error messages
 
 - Added error messages for scale
+
+## [2.0.8] - added error messages
+
+- Added IOS Swipe back feature for 2 transition.
+- Added new transitions
