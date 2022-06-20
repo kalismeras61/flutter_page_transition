@@ -91,10 +91,10 @@ packages:
   page_transition:
     dependency: "direct main"
     description:
-      name: page_transition
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.2"
+      path: ".."
+      relative: true
+    source: path
+    version: "2.0.7"
   path:
     dependency: transitive
     description:

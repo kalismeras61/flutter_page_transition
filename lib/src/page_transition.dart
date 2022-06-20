@@ -11,6 +11,9 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   /// Child for your next page
   final Widget child;
 
+  final PageTransitionsBuilder matchingBuilder =
+      const CupertinoPageTransitionsBuilder();
+
   /// Child for your next page
   final Widget? childCurrent;
 
