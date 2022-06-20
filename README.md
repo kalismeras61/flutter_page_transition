@@ -32,6 +32,8 @@ Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, chi
 
 Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: DetailScreen()));
 
+Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: DetailScreen(), isIos: true));
+
 Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: DetailScreen()));
 
 Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTop, child: DetailScreen()));
@@ -119,6 +121,23 @@ Navigator.push(
         ctx: context),
 );
 ```
+
+### Usage routes with IOS Swipe Back
+
+set `isIos` to `true`
+
+```dart
+Navigator.push(
+      context,
+      PageTransition(
+        type: PageTransitionType.rightToLeft,
+        child: TargetPage(),
+        isIos: true,
+       ),
+);
+```
+
+Note: IOS swipe back can only use for rightToLeft and fade transition
 
 ## Types of transitions
 
