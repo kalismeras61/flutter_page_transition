@@ -37,7 +37,6 @@ class IosPageTransition<T> extends PageRoute<T> {
   /// Optional fullscreen dialog mode
   final bool fullscreenDialog;
 
-  final bool opaque;
   // ignore: public_member_api_docs
   IosPageTransition({
     required this.child,
@@ -51,17 +50,21 @@ class IosPageTransition<T> extends PageRoute<T> {
     this.duration,
     this.reverseTransitionDuration = const Duration(milliseconds: 300),
     this.fullscreenDialog = false,
-    this.opaque = false,
-  }) : super(settings: settings, fullscreenDialog: fullscreenDialog);
+  }) : super(
+          settings: settings,
+          fullscreenDialog: fullscreenDialog,
+        );
 
   @override
-  Color? get barrierColor => null;
+  Color? get barrierColor => Colors.transparent;
 
   @override
   final Duration reverseTransitionDuration;
 
   @override
   String? get barrierLabel => null;
+  @override
+  bool get barrierDismissible => false;
 
   @override
   Widget buildPage(BuildContext context, Animation<double> animation,
@@ -76,6 +79,9 @@ class IosPageTransition<T> extends PageRoute<T> {
 
   @override
   bool get maintainState => true;
+
+  @override
+  bool get opaque => true;
 
   @override
   Duration get transitionDuration => duration ?? Duration(milliseconds: 300);
@@ -104,7 +110,7 @@ class IosPageTransition<T> extends PageRoute<T> {
 
       /// PageTransitionType.leftToRight which is the give us left to right transition
       case PageTransitionType.leftToRight:
-        return SlideTransition(
+        chilData = SlideTransition(
           position: Tween<Offset>(
             begin: const Offset(-1, 0),
             end: Offset.zero,
