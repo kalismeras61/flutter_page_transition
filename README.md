@@ -50,9 +50,18 @@ Navigator.push(context, PageTransition(type: PageTransitionType.leftToRightJoine
 
 Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeftJoined, child: DetailScreen(), childCurrent: this));
 
+Navigator.push(context, PageTransition(type: PageTransitionType.topToBottomJoined, child: DetailScreen(), childCurrent: this));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTopJoined, child: DetailScreen(), childCurrent: this));
+
 Navigator.push(context, PageTransition(type: PageTransitionType.leftToRightPop, child: DetailScreen(), childCurrent: this));
 
 Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeftPop, child: DetailScreen(), childCurrent: this));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.topToBottomPop, child: DetailScreen(), childCurrent: this));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTopPop, child: DetailScreen(), childCurrent: this));
+
 ```
 
 ## Usage for predefined routes
@@ -130,12 +139,16 @@ Navigator.push(
 - scale (with alignment)
 - rotate (with alignment)
 - size (with alignment)
-- rightToLeftWithFade,
-- leftToRightWithFade,
-- leftToRightJoined,
-- rightToLeftJoined,
-- leftToRightPop,
-- rightToLeftPop,
+- rightToLeftWithFade
+- leftToRightWithFade
+- leftToRightJoined
+- rightToLeftJoined
+- topToBottomJoined
+- bottomToTopJoined
+- leftToRightPop
+- rightToLeftPop
+- topToBottomPop
+- bottomToTopPop
 
 ## Curves
 
