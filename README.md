@@ -18,7 +18,7 @@ You should ensure that you add the `page_transition` as a dependency in your flu
 
 ```yaml
 dependencies:
-  page_transition: "^2.0.8"
+  page_transition: "^2.0.9"
 ```
 
 Would you prefer a video tutorial instead? Check out (Johannes Milke's tutorial) [https://www.youtube.com/watch?v=q-e5t3qnB_M&t=1s]
@@ -130,6 +130,20 @@ Navigator.push(
         ctx: context),
 );
 ```
+
+### Do you want use theme transitions ?
+
+set `type` to `PageTransitionType.theme` and you will use your own theme transitions.
+
+
+```dart
+Navigator.push(
+      context,
+      PageTransition(
+        type: PageTransitionType.theme,
+        child: TargetPage(),
+       ),
+);
 
 ### Usage routes with IOS Swipe Back
 
