@@ -11,6 +11,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   /// Child for your next page
   final Widget child;
 
+  // ignore: public_member_api_docs
   final PageTransitionsBuilder matchingBuilder;
 
   /// Child for your next page
@@ -69,10 +70,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
           pageBuilder: (BuildContext context, Animation<double> animation,
               Animation<double> secondaryAnimation) {
             return inheritTheme
-                ? InheritedTheme.captureAll(
-                    ctx!,
-                    child,
-                  )
+                ? InheritedTheme.captureAll(ctx!, child)
                 : child;
           },
           settings: settings,
@@ -176,6 +174,15 @@ class PageTransition<T> extends PageRouteBuilder<T> {
         assert(alignment != null, """
                 When using type "scale" you need argument: 'alignment'
                 """);
+        if (isIos) {
+          var scale = ScaleTransition(
+            alignment: alignment!,
+            scale: animation,
+            child: child,
+          );
+          return matchingBuilder.buildTransitions(
+              this, context, animation, secondaryAnimation, scale);
+        }
         return ScaleTransition(
           alignment: alignment!,
           scale: CurvedAnimation(

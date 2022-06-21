@@ -129,3 +129,8 @@
 
 - Added IOS Swipe back feature for 2 transition.
 - Added new transitions
+
+## [2.0.9] - added error messages
+
+- Added IOS Swipe back feature for scale transition
+- Added new theme option for using theme transition

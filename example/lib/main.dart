@@ -53,6 +53,8 @@ class MyHomePage extends StatelessWidget {
                   PageTransition(
                     type: PageTransitionType.fade,
                     child: SecondPage(),
+                    isIos: true,
+                    duration: Duration(milliseconds: 400),
                   ),
                 );
               },
@@ -151,9 +153,10 @@ class MyHomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   PageTransition(
-                    curve: Curves.linear,
                     type: PageTransitionType.scale,
                     alignment: Alignment.topCenter,
+                    duration: Duration(milliseconds: 400),
+                    isIos: true,
                     child: SecondPage(),
                   ),
                 );
