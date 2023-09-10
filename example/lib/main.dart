@@ -13,6 +13,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        pageTransitionsTheme: PageTransitionsTheme(builders: {
+          TargetPlatform.iOS:
+              PageTransition(type: PageTransitionType.fade, child: this)
+                  .matchingBuilder,
+        }),
       ),
       home: MyHomePage(),
       onGenerateRoute: (settings) {
@@ -20,11 +25,10 @@ class MyApp extends StatelessWidget {
           case '/second':
             return PageTransition(
               child: SecondPage(),
-              type: PageTransitionType.fade,
+              type: PageTransitionType.theme,
               settings: settings,
               reverseDuration: Duration(seconds: 3),
             );
-            break;
           default:
             return null;
         }
@@ -50,11 +54,8 @@ class MyHomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  PageTransition(
-                    type: PageTransitionType.fade,
-                    child: SecondPage(),
-                    isIos: true,
-                    duration: Duration(milliseconds: 400),
+                  MaterialPageRoute(
+                    builder: (context) => SecondPage(),
                   ),
                 );
               },
@@ -336,16 +337,16 @@ class MyHomePage extends StatelessWidget {
 ///Example second page
 class SecondPage extends StatelessWidget {
   /// Page Title
-  final String title;
+  final String? title;
 
   /// second page constructor
-  const SecondPage({Key key, this.title}) : super(key: key);
+  const SecondPage({Key? key, this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context).settings.arguments;
+    final args = ModalRoute.of(context)?.settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text(args ?? "Page Transition Plugin"),
+        title: Text(args.toString()),
       ),
       body: Center(
         child: Column(
@@ -362,7 +363,9 @@ class SecondPage extends StatelessWidget {
                     duration: Duration(milliseconds: 300),
                     reverseDuration: Duration(milliseconds: 300),
                     type: PageTransitionType.topToBottom,
-                    child: ThirdPage(),
+                    child: ThirdPage(
+                      title: '',
+                    ),
                   ),
                 );
               },
@@ -381,7 +384,7 @@ class ThirdPage extends StatelessWidget {
   final String title;
 
   /// second page constructor
-  const ThirdPage({Key key, this.title}) : super(key: key);
+  const ThirdPage({Key? key, required this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

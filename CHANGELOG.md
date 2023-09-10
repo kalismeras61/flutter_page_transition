@@ -134,3 +134,8 @@
 
 - Added IOS Swipe back feature for scale transition
 - Added new theme option for using theme transition
+
+## [2.1.0] - update dependencies
+
+- Update Dependencies
+- Added maintainstate as a prameter.

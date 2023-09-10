@@ -47,6 +47,9 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   // ignore: public_member_api_docs
   final bool isIos;
 
+  // ignore: public_member_api_docs
+  final bool? maintainStateData;
+
   /// Page transition constructor. We can pass the next page as a child,
   PageTransition({
     Key? key,
@@ -63,6 +66,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
     this.opaque = false,
     this.isIos = false,
     this.matchingBuilder = const CupertinoPageTransitionsBuilder(),
+    this.maintainStateData,
     RouteSettings? settings,
   })  : assert(inheritTheme ? ctx != null : true,
             "'ctx' cannot be null when 'inheritTheme' is true, set ctx: context"),
@@ -74,7 +78,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                 : child;
           },
           settings: settings,
-          maintainState: true,
+          maintainState: maintainStateData ?? true,
           opaque: opaque,
           fullscreenDialog: fullscreenDialog,
         );
