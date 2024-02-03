@@ -21,7 +21,7 @@ dependencies:
   page_transition: "^2.1.0"
 ```
 
-Would you prefer a video tutorial instead? Check out (Johannes Milke's tutorial) [https://www.youtube.com/watch?v=q-e5t3qnB_M&t=1s]
+Would you prefer a video tutorial instead? Check out [Johannes Milke's tutorial](https://www.youtube.com/watch?v=q-e5t3qnB_M&t=1s)
 
 Than you can use it with below examples.
 
