@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
               child: SecondPage(),
               type: PageTransitionType.fade,
               settings: settings,
+              reverseDuration: Duration(seconds: 3),
             );
             break;
           default:
@@ -46,7 +47,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            RaisedButton(
+            ElevatedButton(
               child: Text('Fade Second Page - Default'),
               onPressed: () {
                 Navigator.push(
@@ -58,7 +59,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Left To Right Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -70,7 +71,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Left To Right with Fade Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -83,7 +84,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Right To Left Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -95,7 +96,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Right To Left with Fade Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -107,7 +108,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Top to Bottom Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -120,7 +121,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Bottom to Top Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -133,7 +134,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Scale Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -147,7 +148,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Rotate Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -161,7 +162,7 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Size Transition Second Page'),
               onPressed: () {
                 Navigator.push(
@@ -175,7 +176,38 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
-            RaisedButton(
+            ElevatedButton(
+              child: Text('Right to Left Joined'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        alignment: Alignment.bottomCenter,
+                        curve: Curves.easeInOut,
+                        duration: Duration(milliseconds: 600),
+                        reverseDuration: Duration(milliseconds: 600),
+                        type: PageTransitionType.rightToLeftJoined,
+                        child: SecondPage(),
+                        childCurrent: this));
+              },
+            ),
+            ElevatedButton(
+              child: Text('Left to Right Joined'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.leftToRightJoined,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            ElevatedButton(
               child: Text('PushNamed With arguments'),
               onPressed: () {
                 Navigator.pushNamed(
@@ -195,10 +227,10 @@ class MyHomePage extends StatelessWidget {
 ///Example second page
 class SecondPage extends StatelessWidget {
   /// Page Title
-  final String title;
+  final String? title;
 
   /// second page constructor
-  const SecondPage({Key key, this.title}) : super(key: key);
+  const SecondPage({Key? key, this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context).settings.arguments;
@@ -207,7 +239,48 @@ class SecondPage extends StatelessWidget {
         title: Text(args ?? "Page Transition Plugin"),
       ),
       body: Center(
-        child: Text('Second Page'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('Second Page'),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                    duration: Duration(milliseconds: 300),
+                    reverseDuration: Duration(milliseconds: 300),
+                    type: PageTransitionType.topToBottom,
+                    child: ThirdPage(),
+                  ),
+                );
+              },
+              child: Text('Go Third Page'),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// third page
+class ThirdPage extends StatelessWidget {
+  /// Page Title
+  final String title;
+
+  /// second page constructor
+  const ThirdPage({Key key, this.title}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Page Transition Plugin"),
+      ),
+      body: Center(
+        child: Text('ThirdPage Page'),
       ),
     );
   }

@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the PageTransition class from the page_transition library, for the Dart programming language.">
+  <title>PageTransition class - page_transition library - Dart API</title>
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static-assets/github.css">
+  <link rel="stylesheet" href="../static-assets/styles.css">
+  <link rel="icon" href="../static-assets/favicon.png">
+
+</head>
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">page_transition</a></li>
+    <li><a href="../page_transition/page_transition-library.html">page_transition</a></li>
+    <li class="self-crumb">PageTransition<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> class</li>
+  </ol>
+  <div class="self-name">PageTransition</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="../index.html">page_transition</a></li>
+      <li><a href="../page_transition/page_transition-library.html">page_transition</a></li>
+      <li class="self-crumb">PageTransition<span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span> class</li>
+    </ol>
+    
+    <h5>page_transition library</h5>
+    <ol>
+  <li class="section-title"><a href="../page_transition/page_transition-library.html#classes">Classes</a></li>
+  <li><a href="../page_transition/PageTransition-class.html">PageTransition</a></li>
+
+
+
+
+
+
+  <li class="section-title"><a href="../page_transition/page_transition-library.html#enums">Enums</a></li>
+  <li><a href="../page_transition/PageTransitionType-class.html">PageTransitionType</a></li>
+
+
+</ol>
+
+  </div>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div><h1><span class="kind-class">PageTransition&lt;<wbr><span class="type-parameter">T</span>&gt;</span> class  </h1></div>
+
+    <section class="desc markdown">
+      <p>This package allows you amazing transition for your routes
+Page transition class extends PageRouteBuilder</p>
+    </section>
+    
+    <section>
+      <dl class="dl-horizontal">
+        <dt>Inheritance</dt>
+        <dd><ul class="gt-separated dark clazz-relationships">
+          <li><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></li>
+          <li><a href="https://api.flutter.dev/flutter/widgets/Route-class.html">Route</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></li>
+          <li><a href="https://api.flutter.dev/flutter/widgets/OverlayRoute-class.html">OverlayRoute</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></li>
+          <li><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute-class.html">TransitionRoute</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></li>
+          <li><a href="https://api.flutter.dev/flutter/widgets/ModalRoute-class.html">ModalRoute</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></li>
+          <li><a href="https://api.flutter.dev/flutter/widgets/PageRoute-class.html">PageRoute</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></li>
+          <li><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder-class.html">PageRouteBuilder</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></li>
+          <li>PageTransition</li>
+        </ul></dd>
+
+
+
+
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="PageTransition" class="callable">
+          <span class="name"><a href="../page_transition/PageTransition/PageTransition.html">PageTransition</a></span><span class="signature">(<span class="parameter" id="-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a></span> <span class="parameter-name">key</span>, </span><span class="parameter" id="-param-child"><span>@<a href="https://pub.dev/documentation/meta/1.3.0-nullsafety.3/meta/required-constant.html">required</a></span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span>, </span><span class="parameter" id="-param-type"><span>@<a href="https://pub.dev/documentation/meta/1.3.0-nullsafety.3/meta/required-constant.html">required</a></span> <span class="type-annotation"><a href="../page_transition/PageTransitionType-class.html">PageTransitionType</a></span> <span class="parameter-name">type</span>, </span><span class="parameter" id="-param-reverseType"><span class="type-annotation"><a href="../page_transition/PageTransitionType-class.html">PageTransitionType</a></span> <span class="parameter-name">reverseType</span>, </span><span class="parameter" id="-param-childCurrent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">childCurrent</span>, </span><span class="parameter" id="-param-ctx"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">ctx</span>, </span><span class="parameter" id="-param-inheritTheme"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">inheritTheme</span> = <span class="default-value">false</span>, </span><span class="parameter" id="-param-curve"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/animation/Curve-class.html">Curve</a></span> <span class="parameter-name">curve</span> = <span class="default-value">Curves.linear</span>, </span><span class="parameter" id="-param-alignment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Alignment-class.html">Alignment</a></span> <span class="parameter-name">alignment</span>, </span><span class="parameter" id="-param-duration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">duration</span> = <span class="default-value">const Duration(milliseconds: 300)</span>, </span><span class="parameter" id="-param-reverseDuration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span> <span class="parameter-name">reverseDuration</span> = <span class="default-value">const Duration(milliseconds: 300)</span>, </span><span class="parameter" id="-param-settings"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/RouteSettings-class.html">RouteSettings</a></span> <span class="parameter-name">settings</span>}</span>)</span>
+        </dt>
+        <dd>
+          Page transition constructor. We can pass the next page as a child, 
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="alignment" class="property">
+          <span class="name"><a href="../page_transition/PageTransition/alignment.html">alignment</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/Alignment-class.html">Alignment</a></span>         
+        </dt>
+        <dd>
+          Aligment for transitions 
+                  <div class="features">final</div>
+</dd>
+        <dt id="animation" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/animation.html">animation</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span>         
+        </dt>
+        <dd class="inherited">
+          The animation that drives the route's transition and the previous route's
+forward transition. 
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="barrierColor" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/barrierColor.html">barrierColor</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a></span>         
+        </dt>
+        <dd class="inherited">
+          The color to use for the modal barrier. If this is null, the barrier will
+be transparent. <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/barrierColor.html">[...]</a>
+                  <div class="features">final, inherited</div>
+</dd>
+        <dt id="barrierCurve" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/barrierCurve.html">barrierCurve</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/animation/Curve-class.html">Curve</a></span>         
+        </dt>
+        <dd class="inherited">
+          The curve that is used for animating the modal barrier in and out. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/barrierCurve.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="barrierDismissible" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/barrierDismissible.html">barrierDismissible</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Whether you can dismiss this route by tapping the modal barrier. <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/barrierDismissible.html">[...]</a>
+                  <div class="features">final, inherited</div>
+</dd>
+        <dt id="barrierLabel" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/barrierLabel.html">barrierLabel</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>         
+        </dt>
+        <dd class="inherited">
+          The semantic label used for a dismissible barrier. <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/barrierLabel.html">[...]</a>
+                  <div class="features">final, inherited</div>
+</dd>
+        <dt id="canPop" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/canPop.html">canPop</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Whether this route can be popped. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/canPop.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="child" class="property">
+          <span class="name"><a href="../page_transition/PageTransition/child.html">child</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>         
+        </dt>
+        <dd>
+          Child for your next page 
+                  <div class="features">final</div>
+</dd>
+        <dt id="childCurrent" class="property">
+          <span class="name"><a href="../page_transition/PageTransition/childCurrent.html">childCurrent</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>         
+        </dt>
+        <dd>
+          Child for your next page 
+                  <div class="features">final</div>
+</dd>
+        <dt id="completed" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/completed.html">completed</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>         
+        </dt>
+        <dd class="inherited">
+          This future completes only once the transition itself has finished, after
+the overlay entries have been removed from the navigator's overlay. <a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/completed.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="controller" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/controller.html">controller</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/animation/AnimationController-class.html">AnimationController</a></span>         
+        </dt>
+        <dd class="inherited">
+          The animation controller that the route uses to drive the transitions. <a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/controller.html">[...]</a>
+                  <div class="features">@<a href="https://pub.dev/documentation/meta/1.3.0-nullsafety.3/meta/protected-constant.html">protected</a>, read-only, inherited</div>
+</dd>
+        <dt id="ctx" class="property">
+          <span class="name"><a href="../page_transition/PageTransition/ctx.html">ctx</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span>         
+        </dt>
+        <dd>
+          Context for inheret theme 
+                  <div class="features">final</div>
+</dd>
+        <dt id="currentResult" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Route/currentResult.html">currentResult</a></span>
+          <span class="signature">&#8594; T</span>         
+        </dt>
+        <dd class="inherited">
+          When this route is popped (see <a href="https://api.flutter.dev/flutter/widgets/Navigator/pop.html">Navigator.pop</a>) if the result isn't
+specified or if it's null, this value will be used instead. <a href="https://api.flutter.dev/flutter/widgets/Route/currentResult.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="curve" class="property">
+          <span class="name"><a href="../page_transition/PageTransition/curve.html">curve</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/animation/Curve-class.html">Curve</a></span>         
+        </dt>
+        <dd>
+          Curves for transitions 
+                  <div class="features">final</div>
+</dd>
+        <dt id="debugLabel" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/debugLabel.html">debugLabel</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>         
+        </dt>
+        <dd class="inherited">
+          A short description of this route useful for debugging. 
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="duration" class="property">
+          <span class="name"><a href="../page_transition/PageTransition/duration.html">duration</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span>         
+        </dt>
+        <dd>
+          Durationf for your transition default is 300 ms 
+                  <div class="features">final</div>
+</dd>
+        <dt id="finishedWhenPopped" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/finishedWhenPopped.html">finishedWhenPopped</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Controls whether <a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/didPop.html">didPop</a> calls <a href="https://api.flutter.dev/flutter/widgets/NavigatorState/finalizeRoute.html">NavigatorState.finalizeRoute</a>. <a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/finishedWhenPopped.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="fullscreenDialog" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRoute/fullscreenDialog.html">fullscreenDialog</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Whether this page route is a full-screen dialog. <a href="https://api.flutter.dev/flutter/widgets/PageRoute/fullscreenDialog.html">[...]</a>
+                  <div class="features">final, inherited</div>
+</dd>
+        <dt id="hashCode" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>         
+        </dt>
+        <dd class="inherited">
+          The hash code for this object. <a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="hasScopedWillPopCallback" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/hasScopedWillPopCallback.html">hasScopedWillPopCallback</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          True if one or more <a href="https://api.flutter.dev/flutter/widgets/WillPopCallback.html">WillPopCallback</a> callbacks exist. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/hasScopedWillPopCallback.html">[...]</a>
+                  <div class="features">@<a href="https://pub.dev/documentation/meta/1.3.0-nullsafety.3/meta/protected-constant.html">protected</a>, read-only, inherited</div>
+</dd>
+        <dt id="inheritTheme" class="property">
+          <span class="name"><a href="../page_transition/PageTransition/inheritTheme.html">inheritTheme</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd>
+          Optional inheret teheme 
+                  <div class="features">final</div>
+</dd>
+        <dt id="isActive" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Route/isActive.html">isActive</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Whether this route is on the navigator. <a href="https://api.flutter.dev/flutter/widgets/Route/isActive.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="isCurrent" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Route/isCurrent.html">isCurrent</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Whether this route is the top-most route on the navigator. <a href="https://api.flutter.dev/flutter/widgets/Route/isCurrent.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="isFirst" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Route/isFirst.html">isFirst</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Whether this route is the bottom-most route on the navigator. <a href="https://api.flutter.dev/flutter/widgets/Route/isFirst.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="maintainState" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/maintainState.html">maintainState</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Whether the route should remain in memory when it is inactive. <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/maintainState.html">[...]</a>
+                  <div class="features">final, inherited</div>
+</dd>
+        <dt id="navigator" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Route/navigator.html">navigator</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/NavigatorState-class.html">NavigatorState</a></span>         
+        </dt>
+        <dd class="inherited">
+          The navigator that the route is in, if any. 
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="offstage" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/offstage.html">offstage</a></span>
+          <span class="signature">&#8596; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Whether this route is currently offstage. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/offstage.html">[...]</a>
+                  <div class="features">read / write, inherited</div>
+</dd>
+        <dt id="opaque" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/opaque.html">opaque</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Whether the route obscures previous routes when the transition is complete. <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/opaque.html">[...]</a>
+                  <div class="features">final, inherited</div>
+</dd>
+        <dt id="overlayEntries" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/OverlayRoute/overlayEntries.html">overlayEntries</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/widgets/OverlayEntry-class.html">OverlayEntry</a></span>&gt;</span></span>         
+        </dt>
+        <dd class="inherited">
+          The overlay entries of this route. <a href="https://api.flutter.dev/flutter/widgets/OverlayRoute/overlayEntries.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="pageBuilder" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/pageBuilder.html">pageBuilder</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/RoutePageBuilder.html">RoutePageBuilder</a></span>         
+        </dt>
+        <dd class="inherited">
+          Used build the route's primary contents. <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/pageBuilder.html">[...]</a>
+                  <div class="features">final, inherited</div>
+</dd>
+        <dt id="popped" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Route/popped.html">popped</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>         
+        </dt>
+        <dd class="inherited">
+          A future that completes when this route is popped off the navigator. <a href="https://api.flutter.dev/flutter/widgets/Route/popped.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="reverseDuration" class="property">
+          <span class="name"><a href="../page_transition/PageTransition/reverseDuration.html">reverseDuration</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span>         
+        </dt>
+        <dd>
+          Duration for your pop transition default is 300 ms 
+                  <div class="features">final</div>
+</dd>
+        <dt id="reverseTransitionDuration" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/reverseTransitionDuration.html">reverseTransitionDuration</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span>         
+        </dt>
+        <dd class="inherited">
+          The duration the transition going in reverse. <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/reverseTransitionDuration.html">[...]</a>
+                  <div class="features">final, inherited</div>
+</dd>
+        <dt id="reverseType" class="property">
+          <span class="name"><a href="../page_transition/PageTransition/reverseType.html">reverseType</a></span>
+          <span class="signature">&#8594; <a href="../page_transition/PageTransitionType-class.html">PageTransitionType</a></span>         
+        </dt>
+        <dd>
+          Transition types 
+                  <div class="features">final</div>
+</dd>
+        <dt id="runtimeType" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>         
+        </dt>
+        <dd class="inherited">
+          A representation of the runtime type of the object. 
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="secondaryAnimation" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/secondaryAnimation.html">secondaryAnimation</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span>         
+        </dt>
+        <dd class="inherited">
+          The animation for the route being pushed on top of this route. This
+animation lets this route coordinate with the entrance and exit transition
+of route pushed on top of this route. 
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="semanticsDismissible" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/semanticsDismissible.html">semanticsDismissible</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Whether the semantics of the modal barrier are included in the
+semantics tree. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/semanticsDismissible.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="settings" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Route/settings.html">settings</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/RouteSettings-class.html">RouteSettings</a></span>         
+        </dt>
+        <dd class="inherited">
+          The settings for this route. <a href="https://api.flutter.dev/flutter/widgets/Route/settings.html">[...]</a>
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="subtreeContext" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/subtreeContext.html">subtreeContext</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span>         
+        </dt>
+        <dd class="inherited">
+          The build context for the subtree containing the primary content of this route. 
+                  <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="transitionDuration" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/transitionDuration.html">transitionDuration</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Duration-class.html">Duration</a></span>         
+        </dt>
+        <dd class="inherited">
+          The duration the transition going forwards. <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/transitionDuration.html">[...]</a>
+                  <div class="features">final, inherited</div>
+</dd>
+        <dt id="transitionsBuilder" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/transitionsBuilder.html">transitionsBuilder</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/RouteTransitionsBuilder.html">RouteTransitionsBuilder</a></span>         
+        </dt>
+        <dd class="inherited">
+          Used to build the route's transitions. <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/transitionsBuilder.html">[...]</a>
+                  <div class="features">final, inherited</div>
+</dd>
+        <dt id="type" class="property">
+          <span class="name"><a href="../page_transition/PageTransition/type.html">type</a></span>
+          <span class="signature">&#8594; <a href="../page_transition/PageTransitionType-class.html">PageTransitionType</a></span>         
+        </dt>
+        <dd>
+          Transition types
+fade,rightToLeft,leftToRight, upToDown,downToUp,scale,rotate,size,rightToLeftWithFade,leftToRightWithFade 
+                  <div class="features">final</div>
+</dd>
+        <dt id="willHandlePopInternally" class="property inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/willHandlePopInternally.html">willHandlePopInternally</a></span>
+          <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>         
+        </dt>
+        <dd class="inherited">
+          Whether calling <a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/didPop.html">didPop</a> would return false. 
+                  <div class="features">read-only, inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="instance-methods">
+      <h2>Methods</h2>
+      <dl class="callables">
+        <dt id="addLocalHistoryEntry" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/addLocalHistoryEntry.html">addLocalHistoryEntry</a></span><span class="signature">(<wbr><span class="parameter" id="addLocalHistoryEntry-param-entry"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/LocalHistoryEntry-class.html">LocalHistoryEntry</a></span> <span class="parameter-name">entry</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Adds a local history entry to this route. <a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/addLocalHistoryEntry.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="addScopedWillPopCallback" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/addScopedWillPopCallback.html">addScopedWillPopCallback</a></span><span class="signature">(<wbr><span class="parameter" id="addScopedWillPopCallback-param-callback"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/WillPopCallback.html">WillPopCallback</a></span> <span class="parameter-name">callback</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Enables this route to veto attempts by the user to dismiss it. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/addScopedWillPopCallback.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="buildPage" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/buildPage.html">buildPage</a></span><span class="signature">(<wbr><span class="parameter" id="buildPage-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="buildPage-param-animation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span> <span class="parameter-name">animation</span>, </span><span class="parameter" id="buildPage-param-secondaryAnimation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span> <span class="parameter-name">secondaryAnimation</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Override this method to build the primary content of this route. <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/buildPage.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="buildTransitions" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/buildTransitions.html">buildTransitions</a></span><span class="signature">(<wbr><span class="parameter" id="buildTransitions-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span><span class="parameter" id="buildTransitions-param-animation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span> <span class="parameter-name">animation</span>, </span><span class="parameter" id="buildTransitions-param-secondaryAnimation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span> <span class="parameter-name">secondaryAnimation</span>, </span><span class="parameter" id="buildTransitions-param-child"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Override this method to wrap the <code>child</code> with one or more transition
+widgets that define how the route arrives on and leaves the screen. <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/buildTransitions.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="canTransitionFrom" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRoute/canTransitionFrom.html">canTransitionFrom</a></span><span class="signature">(<wbr><span class="parameter" id="canTransitionFrom-param-previousRoute"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute-class.html">TransitionRoute</a></span> <span class="parameter-name">previousRoute</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Returns true if <code>previousRoute</code> should animate when this route
+is pushed on top of it or when then this route is popped off of it. <a href="https://api.flutter.dev/flutter/widgets/PageRoute/canTransitionFrom.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="canTransitionTo" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/PageRoute/canTransitionTo.html">canTransitionTo</a></span><span class="signature">(<wbr><span class="parameter" id="canTransitionTo-param-nextRoute"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute-class.html">TransitionRoute</a></span> <span class="parameter-name">nextRoute</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Returns true if this route supports a transition animation that runs
+when <code>nextRoute</code> is pushed on top of it or when <code>nextRoute</code> is popped
+off of it. <a href="https://api.flutter.dev/flutter/widgets/PageRoute/canTransitionTo.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="changedExternalState" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/changedExternalState.html">changedExternalState</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Called whenever the <a href="https://api.flutter.dev/flutter/widgets/Navigator-class.html">Navigator</a> has its widget rebuilt, to indicate that
+the route may wish to rebuild as well. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/changedExternalState.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="changedInternalState" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/changedInternalState.html">changedInternalState</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Called whenever the internal state of the route has changed. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/changedInternalState.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="createAnimation" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/createAnimation.html">createAnimation</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Called to create the animation that exposes the current progress of
+the transition controlled by the animation controller created by
+<a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/createAnimationController.html">createAnimationController()</a>. 
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="createAnimationController" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/createAnimationController.html">createAnimationController</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/animation/AnimationController-class.html">AnimationController</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Called to create the animation controller that will drive the transitions to
+this route from the previous one, and back to the previous route from this
+one. 
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="createOverlayEntries" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/createOverlayEntries.html">createOverlayEntries</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/widgets/OverlayEntry-class.html">OverlayEntry</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Subclasses should override this getter to return the builders for the overlay. 
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="didAdd" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/didAdd.html">didAdd</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Called after <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/install.html">install</a> when the route is added to the navigator. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/didAdd.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="didChangeNext" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/didChangeNext.html">didChangeNext</a></span><span class="signature">(<wbr><span class="parameter" id="didChangeNext-param-nextRoute"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Route-class.html">Route</a></span> <span class="parameter-name">nextRoute</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          This route's next route has changed to the given new route. <a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/didChangeNext.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="didChangePrevious" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/didChangePrevious.html">didChangePrevious</a></span><span class="signature">(<wbr><span class="parameter" id="didChangePrevious-param-previousRoute"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Route-class.html">Route</a></span> <span class="parameter-name">previousRoute</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          This route's previous route has changed to the given new route. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/didChangePrevious.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="didComplete" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Route/didComplete.html">didComplete</a></span><span class="signature">(<wbr><span class="parameter" id="didComplete-param-result"><span class="type-annotation">T</span> <span class="parameter-name">result</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          The route was popped or is otherwise being removed somewhat gracefully. <a href="https://api.flutter.dev/flutter/widgets/Route/didComplete.html">[...]</a>
+                  <div class="features">@<a href="https://pub.dev/documentation/meta/1.3.0-nullsafety.3/meta/mustCallSuper-constant.html">mustCallSuper</a>, @<a href="https://pub.dev/documentation/meta/1.3.0-nullsafety.3/meta/protected-constant.html">protected</a>, inherited</div>
+</dd>
+        <dt id="didPop" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/didPop.html">didPop</a></span><span class="signature">(<wbr><span class="parameter" id="didPop-param-result"><span class="type-annotation">T</span> <span class="parameter-name">result</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          A request was made to pop this route. If the route can handle it
+internally (e.g. because it has its own stack of internal state) then
+return false, otherwise return true (by returning the value of calling
+<code>super.didPop</code>). Returning false will prevent the default behavior of
+<a href="https://api.flutter.dev/flutter/widgets/NavigatorState/pop.html">NavigatorState.pop</a>. <a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/didPop.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="didPopNext" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/didPopNext.html">didPopNext</a></span><span class="signature">(<wbr><span class="parameter" id="didPopNext-param-nextRoute"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Route-class.html">Route</a></span> <span class="parameter-name">nextRoute</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          The given route, which was above this one, has been popped off the
+navigator. <a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/didPopNext.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="didPush" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/didPush.html">didPush</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/scheduler/TickerFuture-class.html">TickerFuture</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Called after <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/install.html">install</a> when the route is pushed onto the navigator. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/didPush.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="didReplace" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/didReplace.html">didReplace</a></span><span class="signature">(<wbr><span class="parameter" id="didReplace-param-oldRoute"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Route-class.html">Route</a></span> <span class="parameter-name">oldRoute</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Called after <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/install.html">install</a> when the route replaced another in the navigator. <a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/didReplace.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="dispose" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/dispose.html">dispose</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Discards any resources used by the object. <a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/dispose.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="install" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/install.html">install</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Called when the route is inserted into the navigator. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/install.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="noSuchMethod" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+            <span class="returntype parameter">&#8594; dynamic</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Invoked when a non-existent method or property is accessed. <a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="removeLocalHistoryEntry" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/removeLocalHistoryEntry.html">removeLocalHistoryEntry</a></span><span class="signature">(<wbr><span class="parameter" id="removeLocalHistoryEntry-param-entry"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/LocalHistoryEntry-class.html">LocalHistoryEntry</a></span> <span class="parameter-name">entry</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Remove a local history entry from this route. <a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/removeLocalHistoryEntry.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="removeScopedWillPopCallback" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/removeScopedWillPopCallback.html">removeScopedWillPopCallback</a></span><span class="signature">(<wbr><span class="parameter" id="removeScopedWillPopCallback-param-callback"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/WillPopCallback.html">WillPopCallback</a></span> <span class="parameter-name">callback</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Remove one of the callbacks run by <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/willPop.html">willPop</a>. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/removeScopedWillPopCallback.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="setState" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/setState.html">setState</a></span><span class="signature">(<wbr><span class="parameter" id="setState-param-fn"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">fn</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Schedule a call to <a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/buildTransitions.html">buildTransitions</a>. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/setState.html">[...]</a>
+                  <div class="features">@<a href="https://pub.dev/documentation/meta/1.3.0-nullsafety.3/meta/protected-constant.html">protected</a>, inherited</div>
+</dd>
+        <dt id="toString" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/toString.html">toString</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Returns a string representation of this object. 
+                  <div class="features">inherited</div>
+</dd>
+        <dt id="willPop" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/willPop.html">willPop</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/widgets/RoutePopDisposition-class.html">RoutePopDisposition</a></span>&gt;</span></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          Returns <a href="https://api.flutter.dev/flutter/widgets/RoutePopDisposition-class.html">RoutePopDisposition.doNotPop</a> if any of callbacks added with
+<a href="https://api.flutter.dev/flutter/widgets/ModalRoute/addScopedWillPopCallback.html">addScopedWillPopCallback</a> returns either false or null. If they all
+return true, the base <a href="https://api.flutter.dev/flutter/widgets/Route/willPop.html">Route.willPop</a>'s result will be returned. The
+callbacks will be called in the order they were added, and will only be
+called if all previous callbacks returned true. <a href="https://api.flutter.dev/flutter/widgets/ModalRoute/willPop.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="operators">
+      <h2>Operators</h2>
+      <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+          <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+          </span>
+                  </dt>
+        <dd class="inherited">
+          The equality operator. <a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">[...]</a>
+                  <div class="features">inherited</div>
+</dd>
+      </dl>
+    </section>
+
+
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <ol>
+
+    <li class="section-title"><a href="../page_transition/PageTransition-class.html#constructors">Constructors</a></li>
+    <li><a href="../page_transition/PageTransition/PageTransition.html">PageTransition</a></li>
+
+
+    <li class="section-title">
+      <a href="../page_transition/PageTransition-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../page_transition/PageTransition/alignment.html">alignment</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/animation.html">animation</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/barrierColor.html">barrierColor</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/barrierCurve.html">barrierCurve</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/barrierDismissible.html">barrierDismissible</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/barrierLabel.html">barrierLabel</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/canPop.html">canPop</a></li>
+    <li><a href="../page_transition/PageTransition/child.html">child</a></li>
+    <li><a href="../page_transition/PageTransition/childCurrent.html">childCurrent</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/completed.html">completed</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/controller.html">controller</a></li>
+    <li><a href="../page_transition/PageTransition/ctx.html">ctx</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Route/currentResult.html">currentResult</a></li>
+    <li><a href="../page_transition/PageTransition/curve.html">curve</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/debugLabel.html">debugLabel</a></li>
+    <li><a href="../page_transition/PageTransition/duration.html">duration</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/finishedWhenPopped.html">finishedWhenPopped</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRoute/fullscreenDialog.html">fullscreenDialog</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/hasScopedWillPopCallback.html">hasScopedWillPopCallback</a></li>
+    <li><a href="../page_transition/PageTransition/inheritTheme.html">inheritTheme</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Route/isActive.html">isActive</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Route/isCurrent.html">isCurrent</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Route/isFirst.html">isFirst</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/maintainState.html">maintainState</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Route/navigator.html">navigator</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/offstage.html">offstage</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/opaque.html">opaque</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/OverlayRoute/overlayEntries.html">overlayEntries</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/pageBuilder.html">pageBuilder</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Route/popped.html">popped</a></li>
+    <li><a href="../page_transition/PageTransition/reverseDuration.html">reverseDuration</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/reverseTransitionDuration.html">reverseTransitionDuration</a></li>
+    <li><a href="../page_transition/PageTransition/reverseType.html">reverseType</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/secondaryAnimation.html">secondaryAnimation</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/semanticsDismissible.html">semanticsDismissible</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Route/settings.html">settings</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/subtreeContext.html">subtreeContext</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/transitionDuration.html">transitionDuration</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/transitionsBuilder.html">transitionsBuilder</a></li>
+    <li><a href="../page_transition/PageTransition/type.html">type</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/willHandlePopInternally.html">willHandlePopInternally</a></li>
+
+    <li class="section-title inherited"><a href="../page_transition/PageTransition-class.html#instance-methods">Methods</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/addLocalHistoryEntry.html">addLocalHistoryEntry</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/addScopedWillPopCallback.html">addScopedWillPopCallback</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/buildPage.html">buildPage</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRouteBuilder/buildTransitions.html">buildTransitions</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRoute/canTransitionFrom.html">canTransitionFrom</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/PageRoute/canTransitionTo.html">canTransitionTo</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/changedExternalState.html">changedExternalState</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/changedInternalState.html">changedInternalState</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/createAnimation.html">createAnimation</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/createAnimationController.html">createAnimationController</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/createOverlayEntries.html">createOverlayEntries</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/didAdd.html">didAdd</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/didChangeNext.html">didChangeNext</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/didChangePrevious.html">didChangePrevious</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Route/didComplete.html">didComplete</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/didPop.html">didPop</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/didPopNext.html">didPopNext</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/didPush.html">didPush</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/didReplace.html">didReplace</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/TransitionRoute/dispose.html">dispose</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/install.html">install</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/LocalHistoryRoute/removeLocalHistoryEntry.html">removeLocalHistoryEntry</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/removeScopedWillPopCallback.html">removeScopedWillPopCallback</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/setState.html">setState</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/ModalRoute/willPop.html">willPop</a></li>
+
+    <li class="section-title inherited"><a href="../page_transition/PageTransition-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    page_transition
+      1.1.7+6
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../static-assets/typeahead.bundle.min.js"></script>
+<script src="../static-assets/highlight.pack.js"></script>
+<script src="../static-assets/script.js"></script>
+
+
+</body>
+
+</html>

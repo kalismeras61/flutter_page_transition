@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 0.39.0">
+  <meta name="description" content="page_transition API docs, for the Dart programming language.">
+  <title>page_transition - Dart API docs</title>
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="static-assets/github.css">
+  <link rel="stylesheet" href="static-assets/styles.css">
+  <link rel="icon" href="static-assets/favicon.png">
+
+</head>
+
+<body data-base-href=""
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://github.com/kalismeras61/flutter_page_transition">page_transition package</a></li>
+  </ol>
+  <div class="self-name">page_transition</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+      <form class="search-sidebar" role="search">
+        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+      </form>
+    </header>
+    
+    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+      <li><a href="https://github.com/kalismeras61/flutter_page_transition">page_transition package</a></li>
+    </ol>
+    
+    <h5 class="hidden-xs"><span class="package-name">page_transition</span> <span class="package-kind">package</span></h5>
+    <ol>
+          <li class="section-title">Libraries</li>
+          <li><a href="page_transition/page_transition-library.html">page_transition</a></li>
+    </ol>
+  </div>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <section class="desc markdown">
+        <h1 id="flutter-page-transition-package">Flutter Page Transition Package</h1>
+<p>This package gives you beautiful page transitions.
+&lt;br/&gt;&lt;br/&gt;</p>
+<p><a href="https://flutter.io"><img src="https://img.shields.io/badge/Platform-Flutter-yellow.svg" alt="flutter platform"></a>
+<a href="https://pub.dartlang.org/packages/page_transition"><img src="https://img.shields.io/pub/v/page_transition.svg" alt="pub package"></a>
+<a href="https://opensource.org/licenses/"><img src="https://img.shields.io/badge/BSD-2-Clause.svg?style=flat-square" alt="BSD-2-Clause"></a></p>
+<h2 id="demo">Demo</h2><img src="https://www.yasinilhan.com/page_transition/transition.gif" width="340" height="640" title="Screen Shoot">
+<h2 id="usage">Usage</h2>
+<p>It is really easy to use!
+You should ensure that you add the <code>page_transition</code> as a dependency in your flutter project.</p>
+<pre class="language-yaml"><code class="language-yaml">dependencies:
+  page_transition: "^1.1.7+6"
+</code></pre>
+<p>Than you can use it with below examples.</p>
+<pre class="language-dart"><code class="language-dart">Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTop, child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.scale, alignment: Alignment.bottomCenter, child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.size, alignment: Alignment.bottomCenter, child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.rotate, duration: Duration(second: 1), child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeftWithFade, child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.leftToRightWithFade, child: DetailScreen()));
+</code></pre>
+<h2 id="usage-for-predefined-routes">Usage for predefined routes</h2>
+<p>First, define the <code>onGenerateRoute</code> property in the <code>MaterialApp</code> widget like below and in switch cases you can transition to your new routes:</p>
+<pre class="language-dart"><code class="language-dart">  onGenerateRoute: (settings) {
+    switch (settings.name) {
+      case '/second':
+        return PageTransition(child: SecondPage(), type: PageTransitionType.scale);
+        break;
+      default:
+        return null;
+    }
+  },
+</code></pre>
+<p>After that you can use your new route like this:</p>
+<pre class="language-dart"><code class="language-dart">Navigator.pushNamed(context, '/second');
+</code></pre>
+<h3 id="usage-predefined-routes-with-routesettings">Usage predefined routes with RouteSettings</h3>
+<p>First, define the <code>onGenerateRoute</code> property in the <code>MaterialApp</code>   widget like below and in switch cases you can transition to your new routes:</p>
+<pre class="language-dart"><code class="language-dart">   onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case '/second':
+            return PageTransition(
+              child: SecondPage(),
+              type: PageTransitionType.scale,
+              settings: settings,
+            );
+            break;
+          default:
+            return null;
+        }
+      },
+</code></pre>
+<p>After that you can use your new route like this:</p>
+<pre class="language-dart"><code class="language-dart">Navigator.pushNamed(context, '/second', arguments: "arguments data");
+</code></pre>
+<p>for more detail you can look example project.</p>
+<h3 id="usage-routes-with-inherited-theme">Usage routes with Inherited Theme</h3>
+<p>set <code>ctx</code> with BuildContext. <code>ctx</code> mandatory when inheritTheme set to <code>true</code></p>
+<pre class="language-dart"><code class="language-dart">Navigator.push(
+      context,
+      PageTransition(
+        type: PageTransitionType.rightToLeft,
+        child: TargetPage(),
+        inheritTheme: true,
+        ctx: context),
+);
+</code></pre>
+<h2 id="types-of-transitions">Types of transitions</h2>
+<ul>
+<li>fade</li>
+<li>rightToLeft</li>
+<li>leftToRight</li>
+<li>topToBottom</li>
+<li>bottomToTop</li>
+<li>scale (with alignment)</li>
+<li>rotate (with alignment)</li>
+<li>size (with alignment)</li>
+<li>rightToLeftWithFade,</li>
+<li>leftToRightWithFade,</li>
+<li>leftToRightJoined,</li>
+<li>rightToLeftJoined,</li>
+</ul>
+<h2 id="curves">Curves</h2>
+<p>You can use any type of CurvedAnimation <a href="https://docs.flutter.io/flutter/animation/Curves-class.html">curves</a>.</p>
+<h2 id="alignments">Alignments</h2>
+<p>You can use size, scale and rotate transform <a href="https://docs.flutter.io/flutter/painting/Alignment-class.html">alignment</a></p>
+<h2 id="contributing">Contributing</h2>
+<p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</p>
+<p>Please make sure to update tests as appropriate.</p>
+<h2 id="license">License</h2>
+<p><a href="https://opensource.org/licenses/BSD-2-Clause">BSD 2-Clause</a></p>
+      </section>
+      
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="page_transition">
+            <span class="name"><a href="page_transition/page_transition-library.html">page_transition</a></span>           
+          </dt>
+          <dd>
+             
+          </dd>
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    page_transition
+      1.1.7+6
+  </span>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="static-assets/typeahead.bundle.min.js"></script>
+<script src="static-assets/highlight.pack.js"></script>
+<script src="static-assets/script.js"></script>
+
+
+</body>
+
+</html>

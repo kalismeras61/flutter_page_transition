@@ -18,7 +18,7 @@ You should ensure that you add the `page_transition` as a dependency in your flu
 
 ```yaml
 dependencies:
-  page_transition: "^1.1.7+2"
+  page_transition: "^1.1.7+6"
 ```
 
 Than you can use it with below examples.
@@ -112,13 +112,15 @@ Navigator.push(
 - fade
 - rightToLeft
 - leftToRight
-- upToDown
-- downToUp
+- topToBottom
+- bottomToTop
 - scale (with alignment)
 - rotate (with alignment)
 - size (with alignment)
 - rightToLeftWithFade,
 - leftToRightWithFade,
+- leftToRightJoined,
+- rightToLeftJoined,
 
 ## Curves
 

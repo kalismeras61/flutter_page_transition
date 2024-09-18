@@ -1,10 +1,10 @@
 name: page_transition
 description: Flutter Page Transition Package which is the transition second page
-version: 1.1.7+2
+version: 1.1.7+6
 homepage: https://github.com/kalismeras61/flutter_page_transition
 
 environment:
-  sdk: ">=2.3.0 <3.0.0"
+  sdk: ">=3.5.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -14,7 +14,3 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-
-
-flutter:
