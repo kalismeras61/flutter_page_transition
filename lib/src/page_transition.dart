@@ -114,7 +114,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
           position: Tween<Offset>(
             begin: const Offset(1, 0),
             end: Offset.zero,
-          ).animate(animation),
+          ).animate(CurvedAnimation(parent: animation, curve: curve)),
           child: child,
         );
         if (isIos) {
@@ -131,7 +131,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
           position: Tween<Offset>(
             begin: const Offset(-1, 0),
             end: Offset.zero,
-          ).animate(animation),
+          ).animate(CurvedAnimation(parent: animation, curve: curve)),
           child: child,
         );
         // ignore: dead_code
@@ -139,24 +139,19 @@ class PageTransition<T> extends PageRouteBuilder<T> {
 
       /// PageTransitionType.topToBottom which is the give us up to down transition
       case PageTransitionType.topToBottom:
-        if (isIos) {
-          var topBottom = SlideTransition(
-            position: Tween<Offset>(
-              begin: const Offset(0, -1),
-              end: Offset.zero,
-            ).animate(animation),
-            child: child,
-          );
-          return matchingBuilder.buildTransitions(
-              this, context, animation, secondaryAnimation, topBottom);
-        }
-        return SlideTransition(
+        var topBottom = SlideTransition(
           position: Tween<Offset>(
             begin: const Offset(0, -1),
             end: Offset.zero,
-          ).animate(animation),
+          ).animate(CurvedAnimation(parent: animation, curve: curve)),
           child: child,
         );
+
+        if (isIos) {
+          return matchingBuilder.buildTransitions(
+              this, context, animation, secondaryAnimation, topBottom);
+        }
+        return topBottom;
         // ignore: dead_code
         break;
 
@@ -166,7 +161,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
           position: Tween<Offset>(
             begin: const Offset(0, 1),
             end: Offset.zero,
-          ).animate(animation),
+          ).animate(CurvedAnimation(parent: animation, curve: curve)),
           child: child,
         );
         // ignore: dead_code
