@@ -6,10 +6,20 @@ import 'enum.dart';
 
 /// This package allows you amazing transition for your routes
 
+/// Builder function type for creating the transition page
+typedef TransitionPageBuilder = Widget Function(BuildContext context,
+    Animation<double> animation, Animation<double> secondaryAnimation);
+
+/// Builder function type for creating child widget
+typedef ChildBuilder = Widget Function(BuildContext context);
+
 /// Page transition class extends PageRouteBuilder
 class PageTransition<T> extends PageRouteBuilder<T> {
-  /// Child for your next page
-  final Widget child;
+  /// Child widget for the next page
+  final Widget? child;
+
+  /// Builder function for creating child widget with context
+  final ChildBuilder? childBuilder;
 
   // ignore: public_member_api_docs
   final PageTransitionsBuilder matchingBuilder;
@@ -53,12 +63,30 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   // ignore: public_member_api_docs
   final bool? maintainStateData;
 
-  /// Page transition constructor. We can pass the next page as a child,
+  /// Page transition constructor. We can pass the next page either as a child widget
+  /// or as a builder function.
+  ///
+  /// Example using child:
+  /// ```dart
+  /// PageTransition(
+  ///   type: PageTransitionType.rightToLeft,
+  ///   child: DetailPage(),
+  /// )
+  /// ```
+  ///
+  /// Example using builder:
+  /// ```dart
+  /// PageTransition(
+  ///   type: PageTransitionType.rightToLeft,
+  ///   builder: (context) => DetailPage(),
+  /// )
+  /// ```
   PageTransition({
     Key? key,
-    required this.child,
+    this.child,
+    this.childBuilder,
     required this.type,
-    this.childCurrent = null,
+    this.childCurrent,
     this.ctx,
     this.inheritTheme = false,
     this.curve = Curves.linear,
@@ -72,14 +100,15 @@ class PageTransition<T> extends PageRouteBuilder<T> {
     this.maintainStateData,
     this.reverseType,
     RouteSettings? settings,
-  })  : assert(inheritTheme ? ctx != null : true,
+  })  : assert(child != null || childBuilder != null,
+            'Either child or childBuilder must be provided'),
+        assert(!(child != null && childBuilder != null),
+            'Cannot provide both child and childBuilder'),
+        assert(inheritTheme ? ctx != null : true,
             "'ctx' cannot be null when 'inheritTheme' is true, set ctx: context"),
         super(
-          pageBuilder: (BuildContext context, Animation<double> animation,
-              Animation<double> secondaryAnimation) {
-            return inheritTheme
-                ? InheritedTheme.captureAll(ctx!, child)
-                : child;
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return childBuilder?.call(context) ?? child!;
           },
           settings: settings,
           maintainState: maintainStateData ?? true,

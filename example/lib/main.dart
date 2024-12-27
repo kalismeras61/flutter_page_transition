@@ -54,8 +54,11 @@ class MyHomePage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => SecondPage(),
+                  PageTransition(
+                    type: PageTransitionType.fade,
+                    childBuilder: (context) => SecondPage(
+                      title: 'Second Page from builder',
+                    ),
                   ),
                 );
               },
@@ -346,7 +349,7 @@ class SecondPage extends StatelessWidget {
     final args = ModalRoute.of(context)?.settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text(args.toString()),
+        title: Text(args as String? ?? title ?? 'Page Transition Plugin'),
       ),
       body: Center(
         child: Column(

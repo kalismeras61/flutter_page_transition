@@ -1,6 +1,6 @@
 # Flutter Page Transition Package
 
-This package gives you beautiful page transitions.
+This package gives you beautiful page transitions with an easy-to-use API.
 <br/><br/>
 
 [![flutter platform](https://img.shields.io/badge/Platform-Flutter-yellow.svg)](https://flutter.io)
@@ -13,12 +13,64 @@ This package gives you beautiful page transitions.
 
 ## Usage
 
-It is really easy to use!
-You should ensure that you add the `page_transition` as a dependency in your flutter project.
+### Using Extensions (Recommended)
 
-```yaml
-dependencies:
-  page_transition: "^2.1.0"
+```dart
+// Simple transition
+context.pushTransition(
+  type: PageTransitionType.fade,
+  child: DetailScreen(),
+);
+
+// Using builder
+context.pushTransition(
+  type: PageTransitionType.fade,
+  childBuilder: (context) => DetailScreen(
+    id: someId,
+    title: someTitle,
+  ),
+);
+
+// Push replacement
+context.pushReplacementTransition(
+  type: PageTransitionType.rightToLeft,
+  child: DetailScreen(),
+);
+
+// Push and remove until
+context.pushAndRemoveUntilTransition(
+  type: PageTransitionType.fade,
+  child: HomePage(),
+  predicate: (route) => false, // Clear all routes
+);
+
+// Named route with transition
+context.pushNamedTransition(
+  routeName: '/detail',
+  type: PageTransitionType.fade,
+  arguments: {'id': 1},
+);
+```
+
+### Traditional Usage
+
+```dart
+Navigator.push(
+  context,
+  PageTransition(
+    type: PageTransitionType.fade,
+    child: DetailScreen(),
+  ),
+);
+
+// Or using builder
+Navigator.push(
+  context,
+  PageTransition(
+    type: PageTransitionType.fade,
+    childBuilder: (context) => DetailScreen(id: someId),
+  ),
+);
 ```
 
 Would you prefer a video tutorial instead? Check out (Johannes Milke's tutorial) [https://www.youtube.com/watch?v=q-e5t3qnB_M&t=1s]
