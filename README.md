@@ -187,29 +187,24 @@ context.router.push(DetailsRoute(id: 123)); // Will use shared axis horizontal
 context.router.push(const ProfileRoute()); // Will use shared axis vertical
 ```
 
-## Available Transition Types
+### Using with Navigation 2.0 (Router)
 
-- `fade`
-- `rightToLeft`
-- `leftToRight`
-- `topToBottom`
-- `bottomToTop`
-- `scale` (with alignment)
-- `rotate` (with alignment)
-- `size` (with alignment)
-- `rightToLeftWithFade`
-- `leftToRightWithFade`
-- `leftToRightJoined`
-- `rightToLeftJoined`
-- `topToBottomJoined`
-- `bottomToTopJoined`
-- `leftToRightPop`
-- `rightToLeftPop`
-- `topToBottomPop`
-- `bottomToTopPop`
-- `sharedAxisHorizontal` (Material 3 style)
-- `sharedAxisVertical` (Material 3 style)
-- `sharedAxisScale` (Material 3 style)
+```dart
+final router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/details/:id',
+      pageBuilder: (context, state) {
+        return PageTransition(
+          type: PageTransitionType.sharedAxisHorizontal,
+          child: DetailsPage(id: state.params['id']),
+          settings: RouteSettings(name: state.location),
+        );
+      },
+    ),
+  ],
+);
+```
 
 ## Additional Features
 
@@ -249,18 +244,6 @@ context.pushTransition(
   curve: Curves.easeInOut,
 );
 ```
-
-## Video Tutorial
-
-Check out [Johannes Milke's tutorial](https://www.youtube.com/watch?v=q-e5t3qnB_M) for a detailed walkthrough.
-
-## Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-[BSD 2-Clause](https://opensource.org/licenses/BSD-2-Clause)
 
 ## Advanced Usage
 
@@ -320,6 +303,46 @@ context.pushNamedTransition(
 );
 ```
 
+### Using with GoRouter
+
+```dart
+final router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/details/:id',
+      pageBuilder: (context, state) {
+        return PageTransition(
+          type: PageTransitionType.rightToLeftJoined,
+          childCurrent: context.currentRoute,
+          child: DetailsPage(id: state.params['id']),
+          settings: RouteSettings(name: state.location),
+        );
+      },
+    ),
+  ],
+);
+```
+
+### Using with AutoRoute
+
+```dart
+final router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/details/:id',
+      pageBuilder: (context, state) {
+        return PageTransition(
+          type: PageTransitionType.rightToLeftJoined,
+          childCurrent: context.currentRoute,
+          child: DetailsPage(id: state.params['id']),
+          settings: RouteSettings(name: state.location),
+        );
+      },
+    ),
+  ],
+);
+```
+
 ### Using with Navigation 2.0 (Router)
 
 ```dart
@@ -338,3 +361,17 @@ final router = GoRouter(
   ],
 );
 ```
+
+## Resources
+
+### Video Tutorial
+
+Check out [Johannes Milke's tutorial](https://www.youtube.com/watch?v=q-e5t3qnB_M) for a detailed walkthrough.
+
+## Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+[BSD 2-Clause](https://opensource.org/licenses/BSD-2-Clause)
