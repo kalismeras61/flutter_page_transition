@@ -375,3 +375,24 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 ## License
 
 [BSD 2-Clause](https://opensource.org/licenses/BSD-2-Clause)
+
+## Performance Tips
+
+For optimal performance:
+
+1. Keep transition durations short (200-300ms)
+2. Use simpler curves like `Curves.easeOut`
+3. Avoid complex transitions for frequent navigation
+4. Consider using `childBuilder` for lazy widget construction
+5. Use `RepaintBoundary` on heavy widgets being transitioned
+
+```dart
+context.pushTransition(
+  type: PageTransitionType.fade, // Simpler transitions are more performant
+  duration: Duration(milliseconds: 200),
+  curve: Curves.easeOut,
+  child: RepaintBoundary(
+    child: HeavyWidget(),
+  ),
+);
+```

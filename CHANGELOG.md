@@ -145,3 +145,6 @@
 - Update Dependencies
 - fixed curved animations and sub sequent pages
 - Added helper functions for easy navigations!
+
+## 
+## [2.2.1] - added axis transiiton and added performance notes
