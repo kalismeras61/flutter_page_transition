@@ -126,3 +126,14 @@ extension PageTransitionExtension on BuildContext {
     );
   }
 }
+
+extension PageTransitionUtils on BuildContext {
+  Widget? get currentRoute {
+    final modalRoute = ModalRoute.of(this);
+    if (modalRoute is PageRoute) {
+      return modalRoute.buildPage(
+          this, AlwaysStoppedAnimation(1.0), AlwaysStoppedAnimation(0.0));
+    }
+    return null;
+  }
+}

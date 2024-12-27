@@ -507,6 +507,55 @@ class PageTransition<T> extends PageRouteBuilder<T> {
             )
           ],
         );
+
+      case PageTransitionType.sharedAxisHorizontal:
+        return AnimatedBuilder(
+          animation: animation,
+          builder: (context, child) {
+            return Transform.translate(
+              offset: Offset(
+                (1 - curvedAnimation.value) * MediaQuery.of(context).size.width,
+                0,
+              ),
+              child: Opacity(
+                opacity: curvedAnimation.value,
+                child: child,
+              ),
+            );
+          },
+          child: child,
+        );
+
+      case PageTransitionType.sharedAxisVertical:
+        return AnimatedBuilder(
+          animation: animation,
+          builder: (context, child) {
+            return Transform.translate(
+              offset: Offset(
+                0,
+                (1 - curvedAnimation.value) *
+                    MediaQuery.of(context).size.height,
+              ),
+              child: Opacity(
+                opacity: curvedAnimation.value,
+                child: child,
+              ),
+            );
+          },
+          child: child,
+        );
+
+      case PageTransitionType.sharedAxisScale:
+        return ScaleTransition(
+          scale: Tween<double>(
+            begin: 0.8,
+            end: 1.0,
+          ).animate(curvedAnimation),
+          child: FadeTransition(
+            opacity: curvedAnimation,
+            child: child,
+          ),
+        );
     }
   }
 }

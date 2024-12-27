@@ -75,6 +75,55 @@ Navigator.push(
 );
 ```
 
+### Using with Route Generation (GoRouter, AutoRoute, etc.)
+
+```dart
+MaterialApp(
+  onGenerateRoute: (settings) {
+    switch (settings.name) {
+      case '/details':
+        return PageTransition(
+          type: PageTransitionType.rightToLeftJoined,
+          childCurrent: context.currentRoute, // Get current route widget
+          child: DetailsPage(),
+          settings: settings,
+        );
+
+      case '/shared-axis':
+        // Example of shared axis transition
+        return PageTransition(
+          type: PageTransitionType.rightToLeftJoined,
+          childCurrent: context.currentRoute,
+          child: SharedAxisPage(),
+          settings: settings,
+          curve: Curves.easeInOut,
+          duration: Duration(milliseconds: 400),
+        );
+    }
+  },
+);
+```
+
+### Using with GoRouter
+
+```dart
+final router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/details/:id',
+      pageBuilder: (context, state) {
+        return PageTransition(
+          type: PageTransitionType.rightToLeftJoined,
+          childCurrent: context.currentRoute,
+          child: DetailsPage(id: state.params['id']),
+          settings: RouteSettings(name: state.location),
+        );
+      },
+    ),
+  ],
+);
+```
+
 ## Available Transition Types
 
 - `fade`

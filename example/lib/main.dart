@@ -26,10 +26,21 @@ class MyApp extends StatelessWidget {
         switch (settings.name) {
           case '/second':
             return PageTransition(
-              child: SecondPage(),
-              type: PageTransitionType.theme,
+              type: PageTransitionType.sharedAxisHorizontal,
               settings: settings,
-              reverseDuration: Duration(seconds: 3),
+              child: SecondPage(title: 'Shared Axis Horizontal'),
+            );
+          case '/third':
+            return PageTransition(
+              type: PageTransitionType.sharedAxisVertical,
+              settings: settings,
+              child: ThirdPage(title: 'Shared Axis Vertical'),
+            );
+          case '/fourth':
+            return PageTransition(
+              type: PageTransitionType.sharedAxisScale,
+              settings: settings,
+              child: FourthPage(title: 'Shared Axis Scale'),
             );
           default:
             return null;
@@ -411,7 +422,42 @@ class ThirdPage extends StatelessWidget {
         title: Text("Page Transition Plugin"),
       ),
       body: Center(
-        child: Text('ThirdPage Page'),
+        child: Column(
+          children: [
+            Text('ThirdPage Page'),
+            ElevatedButton(
+              onPressed: () {
+                context.pushNamedTransition(
+                  type: PageTransitionType.sharedAxisHorizontal,
+                  routeName: '/fourth',
+                  arguments: 'Fourth Page',
+                );
+              },
+              child: Text('Go Fourth Page'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Fourth page
+class FourthPage extends StatelessWidget {
+  /// Page Title
+  final String title;
+
+  /// Fourth page constructor
+  const FourthPage({super.key, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+        child: Text('Fourth Page'),
       ),
     );
   }

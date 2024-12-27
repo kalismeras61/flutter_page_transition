@@ -71,4 +71,16 @@ enum PageTransitionType {
   /// Pop the current screen bottom to top
 
   bottomToTopPop,
+
+  /// Shared axis horizontal
+
+  sharedAxisHorizontal,
+
+  /// Shared axis vertical
+
+  sharedAxisVertical,
+
+  /// Shared axis scale
+
+  sharedAxisScale,
 }
