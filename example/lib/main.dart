@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
               settings: settings,
               reverseDuration: Duration(seconds: 3),
             );
-            break;
+       
           default:
             return null;
         }
@@ -233,10 +233,10 @@ class SecondPage extends StatelessWidget {
   const SecondPage({Key? key, this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context).settings.arguments;
+    final args = ModalRoute.of(context)?.settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text(args ?? "Page Transition Plugin"),
+        title: Text(args as String? ?? "Page Transition Plugin"),
       ),
       body: Center(
         child: Column(
@@ -269,10 +269,10 @@ class SecondPage extends StatelessWidget {
 /// third page
 class ThirdPage extends StatelessWidget {
   /// Page Title
-  final String title;
+  final String? title;
 
   /// second page constructor
-  const ThirdPage({Key key, this.title}) : super(key: key);
+  const ThirdPage({Key? key, this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

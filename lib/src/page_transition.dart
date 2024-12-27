@@ -11,38 +11,38 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   final Widget child;
 
   /// Child for your next page
-  final Widget childCurrent;
+  final Widget? childCurrent;
 
   /// Transition types
   ///  fade,rightToLeft,leftToRight, upToDown,downToUp,scale,rotate,size,rightToLeftWithFade,leftToRightWithFade
   final PageTransitionType type;
 
   /// Transition types
-  final PageTransitionType reverseType;
+  final PageTransitionType? reverseType;
 
   /// Curves for transitions
   final Curve curve;
 
   /// Aligment for transitions
-  final Alignment alignment;
+  final Alignment? alignment;
 
   /// Durationf for your transition default is 300 ms
-  final Duration duration;
+  final Duration? duration;
 
   /// Duration for your pop transition default is 300 ms
-  final Duration reverseDuration;
+  final Duration? reverseDuration;
 
   /// Context for inheret theme
-  final BuildContext ctx;
+  final BuildContext? ctx;
 
   /// Optional inheret teheme
-  final bool inheritTheme;
+  final bool? inheritTheme;
 
   /// Page transition constructor. We can pass the next page as a child,
   PageTransition({
-    Key key,
-    @required this.child,
-    @required this.type,
+    Key? key,
+    required this.child,
+    required this.type,
     this.reverseType,
     this.childCurrent,
     this.ctx,
@@ -51,21 +51,21 @@ class PageTransition<T> extends PageRouteBuilder<T> {
     this.alignment,
     this.duration = const Duration(milliseconds: 300),
     this.reverseDuration = const Duration(milliseconds: 300),
-    RouteSettings settings,
-  })  : assert(inheritTheme ? ctx != null : true,
+    RouteSettings? settings,
+  })  : assert(inheritTheme! ? ctx != null : true,
             "'ctx' cannot be null when 'inheritTheme' is true, set ctx: context"),
         super(
           pageBuilder: (BuildContext context, Animation<double> animation,
               Animation<double> secondaryAnimation) {
-            return inheritTheme
+            return inheritTheme!
                 ? InheritedTheme.captureAll(
-                    ctx,
+                    ctx!,
                     child,
                   )
                 : child;
           },
-          transitionDuration: duration,
-          reverseTransitionDuration: reverseDuration,
+          transitionDuration: duration!,
+          reverseTransitionDuration: reverseDuration!,
           settings: settings,
           opaque: false,
           transitionsBuilder: (BuildContext context,
@@ -75,7 +75,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
             switch (type) {
               case PageTransitionType.fade:
                 return FadeTransition(opacity: animation, child: child);
-                break;
+                
 
               /// PageTransitionType.rightToLeft which is the give us right to left transition
               case PageTransitionType.rightToLeft:
@@ -86,7 +86,7 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                   ).animate(animation),
                   child: child,
                 );
-                break;
+               
 
               /// PageTransitionType.leftToRight which is the give us left to right transition
               case PageTransitionType.leftToRight:
@@ -97,7 +97,6 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                   ).animate(animation),
                   child: child,
                 );
-                break;
 
               /// PageTransitionType.topToBottom which is the give us up to down transition
               case PageTransitionType.topToBottom:
@@ -108,7 +107,6 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                   ).animate(animation),
                   child: child,
                 );
-                break;
 
               /// PageTransitionType.downToUp which is the give us down to up transition
               case PageTransitionType.bottomToTop:
@@ -119,13 +117,12 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                   ).animate(animation),
                   child: child,
                 );
-                break;
 
               /// PageTransitionType.scale which is the scale functionality for transition you can also use curve for this transition
 
               case PageTransitionType.scale:
                 return ScaleTransition(
-                  alignment: alignment,
+                  alignment: alignment!,
                   scale: CurvedAnimation(
                     parent: animation,
                     curve: Interval(
@@ -136,13 +133,12 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                   ),
                   child: child,
                 );
-                break;
 
               /// PageTransitionType.rotate which is the rotate functionality for transition you can also use alignment for this transition
 
               case PageTransitionType.rotate:
                 return RotationTransition(
-                  alignment: alignment,
+                  alignment: alignment!,
                   turns: animation,
                   child: ScaleTransition(
                     alignment: alignment,
@@ -153,13 +149,12 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                     ),
                   ),
                 );
-                break;
 
               /// PageTransitionType.size which is the rotate functionality for transition you can also use curve for this transition
 
               case PageTransitionType.size:
                 return Align(
-                  alignment: alignment,
+                  alignment: alignment!,
                   child: SizeTransition(
                     sizeFactor: CurvedAnimation(
                       parent: animation,
@@ -168,7 +163,6 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                     child: child,
                   ),
                 );
-                break;
 
               /// PageTransitionType.rightToLeftWithFade which is the fade functionality from right o left
 
@@ -189,7 +183,6 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                     ),
                   ),
                 );
-                break;
 
               /// PageTransitionType.leftToRightWithFade which is the fade functionality from left o right with curve
 
@@ -215,7 +208,6 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                     ),
                   ),
                 );
-                break;
 
               case PageTransitionType.rightToLeftJoined:
                 assert(childCurrent != null, """
@@ -254,7 +246,6 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                     )
                   ],
                 );
-                break;
 
               case PageTransitionType.leftToRightJoined:
                 assert(childCurrent != null, """
@@ -292,13 +283,8 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                     )
                   ],
                 );
-                break;
 
-              /// FadeTransitions which is the fade transition
-
-              default:
-                return FadeTransition(opacity: animation, child: child);
-            }
+              }
           },
         );
 }
