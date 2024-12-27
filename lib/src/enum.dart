@@ -1,5 +1,8 @@
 /// Transition enum
 enum PageTransitionType {
+  /// theme default
+  theme,
+
   /// Fade Animation
   fade,
 
@@ -9,15 +12,15 @@ enum PageTransitionType {
   /// Left to right animation
   leftToRight,
 
-  /// Top the bottom animation
+  /// Top to bottom animation
 
   topToBottom,
 
-  /// bottom the top animation
+  /// Bottom to top animation
 
   bottomToTop,
 
-  /// scale animation
+  /// Scale animation
 
   scale,
 
@@ -44,4 +47,28 @@ enum PageTransitionType {
   /// Right to left slide as if joined
 
   rightToLeftJoined,
+
+  /// Top to bottom as if joined
+
+  topToBottomJoined,
+
+  /// Bottom to top as if joined
+
+  bottomToTopJoined,
+
+  /// Pop the current screen left to right
+
+  leftToRightPop,
+
+  /// Pop the current screen right to left
+
+  rightToLeftPop,
+
+  /// Pop the current screen top to bottom
+
+  topToBottomPop,
+
+  /// Pop the current screen bottom to top
+
+  bottomToTopPop,
 }

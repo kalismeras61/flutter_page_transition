@@ -1,6 +1,7 @@
 library page_transition;
 
 import 'package:flutter/material.dart';
+
 import 'enum.dart';
 
 /// This package allows you amazing transition for your routes
@@ -9,6 +10,9 @@ import 'enum.dart';
 class PageTransition<T> extends PageRouteBuilder<T> {
   /// Child for your next page
   final Widget child;
+
+  // ignore: public_member_api_docs
+  final PageTransitionsBuilder matchingBuilder;
 
   /// Child for your next page
   final Widget? childCurrent;
@@ -23,194 +27,265 @@ class PageTransition<T> extends PageRouteBuilder<T> {
   /// Curves for transitions
   final Curve curve;
 
-  /// Aligment for transitions
+  /// Alignment for transitions
   final Alignment? alignment;
 
-  /// Durationf for your transition default is 300 ms
-  final Duration? duration;
+  /// Duration for your transition default is 300 ms
+  final Duration duration;
 
   /// Duration for your pop transition default is 300 ms
   final Duration? reverseDuration;
 
-  /// Context for inheret theme
+  /// Context for inherit theme
   final BuildContext? ctx;
 
-  /// Optional inheret teheme
-  final bool? inheritTheme;
+  /// Optional inherit theme
+  final bool inheritTheme;
+
+  /// Optional fullscreen dialog mode
+  final bool fullscreenDialog;
+
+  final bool opaque;
+
+  // ignore: public_member_api_docs
+  final bool isIos;
+
+  // ignore: public_member_api_docs
+  final bool? maintainStateData;
 
   /// Page transition constructor. We can pass the next page as a child,
   PageTransition({
     Key? key,
     required this.child,
     required this.type,
-    this.reverseType,
-    this.childCurrent,
+    this.childCurrent = null,
     this.ctx,
     this.inheritTheme = false,
     this.curve = Curves.linear,
     this.alignment,
-    this.duration = const Duration(milliseconds: 300),
-    this.reverseDuration = const Duration(milliseconds: 300),
+    this.duration = const Duration(milliseconds: 200),
+    this.reverseDuration = const Duration(milliseconds: 200),
+    this.fullscreenDialog = false,
+    this.opaque = false,
+    this.isIos = false,
+    this.matchingBuilder = const CupertinoPageTransitionsBuilder(),
+    this.maintainStateData,
+    this.reverseType,
     RouteSettings? settings,
-  })  : assert(inheritTheme! ? ctx != null : true,
+  })  : assert(inheritTheme ? ctx != null : true,
             "'ctx' cannot be null when 'inheritTheme' is true, set ctx: context"),
         super(
           pageBuilder: (BuildContext context, Animation<double> animation,
               Animation<double> secondaryAnimation) {
-            return inheritTheme!
-                ? InheritedTheme.captureAll(
-                    ctx!,
-                    child,
-                  )
+            return inheritTheme
+                ? InheritedTheme.captureAll(ctx!, child)
                 : child;
           },
-          transitionDuration: duration!,
-          reverseTransitionDuration: reverseDuration!,
           settings: settings,
-          opaque: false,
-          transitionsBuilder: (BuildContext context,
-              Animation<double> animation,
-              Animation<double> secondaryAnimation,
-              Widget child) {
-            switch (type) {
-              case PageTransitionType.fade:
-                return FadeTransition(opacity: animation, child: child);
-                
+          maintainState: maintainStateData ?? true,
+          opaque: opaque,
+          fullscreenDialog: fullscreenDialog,
+        );
 
-              /// PageTransitionType.rightToLeft which is the give us right to left transition
-              case PageTransitionType.rightToLeft:
-                return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(1, 0),
-                    end: Offset.zero,
-                  ).animate(animation),
-                  child: child,
-                );
-               
+  @override
+  Duration get transitionDuration => duration;
 
-              /// PageTransitionType.leftToRight which is the give us left to right transition
-              case PageTransitionType.leftToRight:
-                return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(-1, 0),
-                    end: Offset.zero,
-                  ).animate(animation),
-                  child: child,
-                );
+  @override
+  // ignore: public_member_api_docs
+  Duration get reverseTransitionDuration => reverseDuration ?? duration;
 
-              /// PageTransitionType.topToBottom which is the give us up to down transition
-              case PageTransitionType.topToBottom:
-                return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(0, -1),
-                    end: Offset.zero,
-                  ).animate(animation),
-                  child: child,
-                );
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    final curvedAnimation = CurvedAnimation(parent: animation, curve: curve);
+    final curvedSecondaryAnimation =
+        CurvedAnimation(parent: secondaryAnimation, curve: curve);
+    switch (type) {
+      case PageTransitionType.theme:
+        return Theme.of(context).pageTransitionsTheme.buildTransitions(
+              this,
+              context,
+              curvedAnimation,
+              curvedSecondaryAnimation,
+              child,
+            );
 
-              /// PageTransitionType.downToUp which is the give us down to up transition
-              case PageTransitionType.bottomToTop:
-                return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(0, 1),
-                    end: Offset.zero,
-                  ).animate(animation),
-                  child: child,
-                );
+      case PageTransitionType.fade:
+        final fadeTransition = FadeTransition(
+          opacity: curvedAnimation,
+          child: child,
+        );
+        if (isIos) {
+          return matchingBuilder.buildTransitions(
+            this,
+            context,
+            curvedAnimation,
+            curvedSecondaryAnimation,
+            fadeTransition,
+          );
+        }
+        return fadeTransition;
 
-              /// PageTransitionType.scale which is the scale functionality for transition you can also use curve for this transition
+      /// PageTransitionType.rightToLeft which is the give us right to left transition
+      case PageTransitionType.rightToLeft:
+        var slideTransition = SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(1, 0),
+            end: Offset.zero,
+          ).animate(curvedAnimation),
+          child: child,
+        );
+        if (isIos) {
+          return matchingBuilder.buildTransitions(
+            this,
+            context,
+            curvedAnimation,
+            curvedSecondaryAnimation,
+            child,
+          );
+        }
+        return slideTransition;
 
-              case PageTransitionType.scale:
-                return ScaleTransition(
-                  alignment: alignment!,
-                  scale: CurvedAnimation(
-                    parent: animation,
-                    curve: Interval(
-                      0.00,
-                      0.50,
-                      curve: curve,
-                    ),
-                  ),
-                  child: child,
-                );
+      /// PageTransitionType.leftToRight which is the give us left to right transition
+      case PageTransitionType.leftToRight:
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(-1, 0),
+            end: Offset.zero,
+          ).animate(curvedAnimation),
+          child: child,
+        );
 
-              /// PageTransitionType.rotate which is the rotate functionality for transition you can also use alignment for this transition
+      /// PageTransitionType.topToBottom which is the give us up to down transition
+      case PageTransitionType.topToBottom:
+        var slideTransition = SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(0, -1),
+            end: Offset.zero,
+          ).animate(curvedAnimation),
+          child: child,
+        );
+        if (isIos) {
+          return matchingBuilder.buildTransitions(
+            this,
+            context,
+            curvedAnimation,
+            curvedSecondaryAnimation,
+            slideTransition,
+          );
+        }
+        return slideTransition;
 
-              case PageTransitionType.rotate:
-                return RotationTransition(
-                  alignment: alignment!,
-                  turns: animation,
-                  child: ScaleTransition(
-                    alignment: alignment,
-                    scale: animation,
-                    child: FadeTransition(
-                      opacity: animation,
-                      child: child,
-                    ),
-                  ),
-                );
+      /// PageTransitionType.downToUp which is the give us down to up transition
+      case PageTransitionType.bottomToTop:
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(0, 1),
+            end: Offset.zero,
+          ).animate(curvedAnimation),
+          child: child,
+        );
 
-              /// PageTransitionType.size which is the rotate functionality for transition you can also use curve for this transition
+      /// PageTransitionType.scale which is the scale functionality for transition you can also use curve for this transition
 
-              case PageTransitionType.size:
-                return Align(
-                  alignment: alignment!,
-                  child: SizeTransition(
-                    sizeFactor: CurvedAnimation(
-                      parent: animation,
-                      curve: curve,
-                    ),
-                    child: child,
-                  ),
-                );
+      case PageTransitionType.scale:
+        assert(alignment != null, """
+                When using type "scale" you need argument: 'alignment'
+                """);
+        var scaleTransition = ScaleTransition(
+          alignment: alignment!,
+          scale: curvedAnimation,
+          child: child,
+        );
+        if (isIos) {
+          return matchingBuilder.buildTransitions(
+            this,
+            context,
+            curvedAnimation,
+            curvedSecondaryAnimation,
+            scaleTransition,
+          );
+        }
+        return scaleTransition;
 
-              /// PageTransitionType.rightToLeftWithFade which is the fade functionality from right o left
+      /// PageTransitionType.rotate which is the rotate functionality for transition you can also use alignment for this transition
 
-              case PageTransitionType.rightToLeftWithFade:
-                return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(1.0, 0.0),
-                    end: Offset.zero,
-                  ).animate(animation),
-                  child: FadeTransition(
-                    opacity: animation,
-                    child: SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(1, 0),
-                        end: Offset.zero,
-                      ).animate(animation),
-                      child: child,
-                    ),
-                  ),
-                );
+      case PageTransitionType.rotate:
+        assert(alignment != null, """
+                When using type "RotationTransition" you need argument: 'alignment'
+                """);
+        return new RotationTransition(
+          alignment: alignment!,
+          turns: curvedAnimation,
+          child: ScaleTransition(
+            alignment: alignment!,
+            scale: curvedAnimation,
+            child: FadeTransition(
+              opacity: curvedAnimation,
+              child: child,
+            ),
+          ),
+        );
 
-              /// PageTransitionType.leftToRightWithFade which is the fade functionality from left o right with curve
+      /// PageTransitionType.size which is the rotate functionality for transition you can also use curve for this transition
 
-              case PageTransitionType.leftToRightWithFade:
-                return SlideTransition(
-                  position: Tween<Offset>(
-                    begin: const Offset(-1.0, 0.0),
-                    end: Offset.zero,
-                  ).animate(
-                    CurvedAnimation(
-                      parent: animation,
-                      curve: curve,
-                    ),
-                  ),
-                  child: FadeTransition(
-                    opacity: animation,
-                    child: SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(-1, 0),
-                        end: Offset.zero,
-                      ).animate(animation),
-                      child: child,
-                    ),
-                  ),
-                );
+      case PageTransitionType.size:
+        assert(alignment != null, """
+                When using type "size" you need argument: 'alignment'
+                """);
+        return Align(
+          alignment: alignment!,
+          child: SizeTransition(
+            sizeFactor: CurvedAnimation(
+              parent: curvedAnimation,
+              curve: curve,
+            ),
+            child: child,
+          ),
+        );
 
-              case PageTransitionType.rightToLeftJoined:
-                assert(childCurrent != null, """
+      /// PageTransitionType.rightToLeftWithFade which is the fade functionality from right o left
+
+      case PageTransitionType.rightToLeftWithFade:
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(1.0, 0.0),
+            end: Offset.zero,
+          ).animate(curvedAnimation),
+          child: FadeTransition(
+            opacity: curvedAnimation,
+            child: SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(1, 0),
+                end: Offset.zero,
+              ).animate(curvedAnimation),
+              child: child,
+            ),
+          ),
+        );
+
+      /// PageTransitionType.leftToRightWithFade which is the fade functionality from left o right with curve
+
+      case PageTransitionType.leftToRightWithFade:
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(-1.0, 0.0),
+            end: Offset.zero,
+          ).animate(curvedAnimation),
+          child: FadeTransition(
+            opacity: curvedAnimation,
+            child: SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(-1, 0),
+                end: Offset.zero,
+              ).animate(curvedAnimation),
+              child: child,
+            ),
+          ),
+        );
+
+      case PageTransitionType.rightToLeftJoined:
+        assert(childCurrent != null, """
                 When using type "rightToLeftJoined" you need argument: 'childCurrent'
 
                 example:
@@ -218,73 +293,191 @@ class PageTransition<T> extends PageRouteBuilder<T> {
                   childCurrent: this
 
                 """);
-                return Stack(
-                  children: <Widget>[
-                    SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(0.0, 0.0),
-                        end: const Offset(-1.0, 0.0),
-                      ).animate(
-                        CurvedAnimation(
-                          parent: animation,
-                          curve: curve,
-                        ),
-                      ),
-                      child: childCurrent,
-                    ),
-                    SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(1.0, 0.0),
-                        end: Offset.zero,
-                      ).animate(
-                        CurvedAnimation(
-                          parent: animation,
-                          curve: curve,
-                        ),
-                      ),
-                      child: child,
-                    )
-                  ],
-                );
 
-              case PageTransitionType.leftToRightJoined:
-                assert(childCurrent != null, """
+        return Stack(
+          children: <Widget>[
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(-1.0, 0.0),
+              ).animate(curvedAnimation),
+              child: childCurrent,
+            ),
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(1.0, 0.0),
+                end: Offset.zero,
+              ).animate(curvedAnimation),
+              child: child,
+            )
+          ],
+        );
+
+      case PageTransitionType.leftToRightJoined:
+        assert(childCurrent != null, """
                 When using type "leftToRightJoined" you need argument: 'childCurrent'
                 example:
                   child: MyPage(),
                   childCurrent: this
 
                 """);
-                return Stack(
-                  children: <Widget>[
-                    SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(-1.0, 0.0),
-                        end: const Offset(0.0, 0.0),
-                      ).animate(
-                        CurvedAnimation(
-                          parent: animation,
-                          curve: curve,
-                        ),
-                      ),
-                      child: child,
-                    ),
-                    SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(0.0, 0.0),
-                        end: const Offset(1.0, 0.0),
-                      ).animate(
-                        CurvedAnimation(
-                          parent: animation,
-                          curve: curve,
-                        ),
-                      ),
-                      child: childCurrent,
-                    )
-                  ],
-                );
-
-              }
-          },
+        return Stack(
+          children: <Widget>[
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(-1.0, 0.0),
+                end: const Offset(0.0, 0.0),
+              ).animate(curvedAnimation),
+              child: child,
+            ),
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(1.0, 0.0),
+              ).animate(curvedAnimation),
+              child: childCurrent,
+            )
+          ],
         );
+
+      case PageTransitionType.topToBottomJoined:
+        assert(childCurrent != null, """
+                When using type "topToBottomJoined" you need argument: 'childCurrent'
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+        return Stack(
+          children: <Widget>[
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, -1.0),
+                end: const Offset(0.0, 0.0),
+              ).animate(curvedAnimation),
+              child: child,
+            ),
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(0.0, 1.0),
+              ).animate(curvedAnimation),
+              child: childCurrent,
+            )
+          ],
+        );
+
+      case PageTransitionType.bottomToTopJoined:
+        assert(childCurrent != null, """
+                When using type "bottomToTopJoined" you need argument: 'childCurrent'
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+        return Stack(
+          children: <Widget>[
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 1.0),
+                end: const Offset(0.0, 0.0),
+              ).animate(curvedAnimation),
+              child: child,
+            ),
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(0.0, -1.0),
+              ).animate(curvedAnimation),
+              child: childCurrent,
+            )
+          ],
+        );
+
+      case PageTransitionType.rightToLeftPop:
+        assert(childCurrent != null, """
+                When using type "rightToLeftPop" you need argument: 'childCurrent'
+
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+        return Stack(
+          children: <Widget>[
+            child,
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(-1.0, 0.0),
+              ).animate(curvedAnimation),
+              child: childCurrent,
+            ),
+          ],
+        );
+
+      case PageTransitionType.leftToRightPop:
+        assert(childCurrent != null, """
+                When using type "leftToRightPop" you need argument: 'childCurrent'
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+        return Stack(
+          children: <Widget>[
+            child,
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(1.0, 0.0),
+              ).animate(curvedAnimation),
+              child: childCurrent,
+            )
+          ],
+        );
+
+      case PageTransitionType.topToBottomPop:
+        assert(childCurrent != null, """
+                When using type "topToBottomPop" you need argument: 'childCurrent'
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+        return Stack(
+          children: <Widget>[
+            child,
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(0.0, 1.0),
+              ).animate(curvedAnimation),
+              child: childCurrent,
+            )
+          ],
+        );
+
+      case PageTransitionType.bottomToTopPop:
+        assert(childCurrent != null, """
+                When using type "bottomToTopPop" you need argument: 'childCurrent'
+                example:
+                  child: MyPage(),
+                  childCurrent: this
+
+                """);
+        return Stack(
+          children: <Widget>[
+            child,
+            SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0.0, 0.0),
+                end: const Offset(0.0, -1.0),
+              ).animate(curvedAnimation),
+              child: childCurrent,
+            )
+          ],
+        );
+    }
+  }
 }

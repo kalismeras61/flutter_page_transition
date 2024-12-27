@@ -18,8 +18,10 @@ You should ensure that you add the `page_transition` as a dependency in your flu
 
 ```yaml
 dependencies:
-  page_transition: "^1.1.7+6"
+  page_transition: "^2.1.0"
 ```
+
+Would you prefer a video tutorial instead? Check out (Johannes Milke's tutorial) [https://www.youtube.com/watch?v=q-e5t3qnB_M&t=1s]
 
 Than you can use it with below examples.
 
@@ -29,6 +31,8 @@ Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: Det
 Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, child: DetailScreen()));
 
 Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeft, child: DetailScreen(), isIos: true));
 
 Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: DetailScreen()));
 
@@ -43,6 +47,23 @@ Navigator.push(context, PageTransition(type: PageTransitionType.rotate, duration
 Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeftWithFade, child: DetailScreen()));
 
 Navigator.push(context, PageTransition(type: PageTransitionType.leftToRightWithFade, child: DetailScreen()));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.leftToRightJoined, child: DetailScreen(), childCurrent: this));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeftJoined, child: DetailScreen(), childCurrent: this));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.topToBottomJoined, child: DetailScreen(), childCurrent: this));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTopJoined, child: DetailScreen(), childCurrent: this));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.leftToRightPop, child: DetailScreen(), childCurrent: this));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeftPop, child: DetailScreen(), childCurrent: this));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.topToBottomPop, child: DetailScreen(), childCurrent: this));
+
+Navigator.push(context, PageTransition(type: PageTransitionType.bottomToTopPop, child: DetailScreen(), childCurrent: this));
+
 ```
 
 ## Usage for predefined routes
@@ -60,16 +81,16 @@ First, define the `onGenerateRoute` property in the `MaterialApp` widget like be
     }
   },
 ```
+
 After that you can use your new route like this:
 
 ```dart
 Navigator.pushNamed(context, '/second');
 ```
 
-
 ### Usage predefined routes with RouteSettings
 
-First, define the `onGenerateRoute` property in the `MaterialApp`   widget like below and in switch cases you can transition to your new routes:
+First, define the `onGenerateRoute` property in the `MaterialApp` widget like below and in switch cases you can transition to your new routes:
 
 ```dart
    onGenerateRoute: (settings) {
@@ -92,10 +113,13 @@ After that you can use your new route like this:
 ```dart
 Navigator.pushNamed(context, '/second', arguments: "arguments data");
 ```
+
 for more detail you can look example project.
 
 ### Usage routes with Inherited Theme
+
 set `ctx` with BuildContext. `ctx` mandatory when inheritTheme set to `true`
+
 ```dart
 Navigator.push(
       context,
@@ -107,6 +131,36 @@ Navigator.push(
 );
 ```
 
+### Do you want use theme transitions ?
+
+set `type` to `PageTransitionType.theme` and you will use your own theme transitions.
+
+````dart
+Navigator.push(
+      context,
+      PageTransition(
+        type: PageTransitionType.theme,
+        child: TargetPage(),
+       ),
+);
+
+### Usage routes with IOS Swipe Back
+
+set `isIos` to `true`
+
+```dart
+Navigator.push(
+      context,
+      PageTransition(
+        type: PageTransitionType.rightToLeft,
+        child: TargetPage(),
+        isIos: true,
+       ),
+);
+````
+
+Note: IOS swipe back can only use for rightToLeft and fade transition
+
 ## Types of transitions
 
 - fade
@@ -117,10 +171,16 @@ Navigator.push(
 - scale (with alignment)
 - rotate (with alignment)
 - size (with alignment)
-- rightToLeftWithFade,
-- leftToRightWithFade,
-- leftToRightJoined,
-- rightToLeftJoined,
+- rightToLeftWithFade
+- leftToRightWithFade
+- leftToRightJoined
+- rightToLeftJoined
+- topToBottomJoined
+- bottomToTopJoined
+- leftToRightPop
+- rightToLeftPop
+- topToBottomPop
+- bottomToTopPop
 
 ## Curves
 

@@ -13,6 +13,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        pageTransitionsTheme: PageTransitionsTheme(builders: {
+          TargetPlatform.iOS:
+              PageTransition(type: PageTransitionType.fade, child: this)
+                  .matchingBuilder,
+        }),
       ),
       home: MyHomePage(),
       onGenerateRoute: (settings) {
@@ -20,11 +25,10 @@ class MyApp extends StatelessWidget {
           case '/second':
             return PageTransition(
               child: SecondPage(),
-              type: PageTransitionType.fade,
+              type: PageTransitionType.theme,
               settings: settings,
               reverseDuration: Duration(seconds: 3),
             );
-       
           default:
             return null;
         }
@@ -43,18 +47,15 @@ class MyHomePage extends StatelessWidget {
         title: Text('Page Transition'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
             ElevatedButton(
               child: Text('Fade Second Page - Default'),
               onPressed: () {
                 Navigator.push(
                   context,
-                  PageTransition(
-                    type: PageTransitionType.fade,
-                    child: SecondPage(),
+                  MaterialPageRoute(
+                    builder: (context) => SecondPage(),
                   ),
                 );
               },
@@ -66,6 +67,19 @@ class MyHomePage extends StatelessWidget {
                   context,
                   PageTransition(
                     type: PageTransitionType.leftToRight,
+                    child: SecondPage(),
+                  ),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Right To Left Transition Second Page Ios SwipeBack'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.rightToLeft,
+                    isIos: true,
                     child: SecondPage(),
                   ),
                 );
@@ -90,7 +104,7 @@ class MyHomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   PageTransition(
-                    type: PageTransitionType.rightToLeft,
+                    type: PageTransitionType.leftToRight,
                     child: SecondPage(),
                   ),
                 );
@@ -140,9 +154,10 @@ class MyHomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   PageTransition(
-                    curve: Curves.linear,
                     type: PageTransitionType.scale,
                     alignment: Alignment.topCenter,
+                    duration: Duration(milliseconds: 400),
+                    isIos: true,
                     child: SecondPage(),
                   ),
                 );
@@ -208,6 +223,101 @@ class MyHomePage extends StatelessWidget {
               },
             ),
             ElevatedButton(
+              child: Text('Top to Bottom Joined'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.topToBottomJoined,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Bottom to Top Joined'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.bottomToTopJoined,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Right to Left Pop'),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageTransition(
+                        alignment: Alignment.bottomCenter,
+                        curve: Curves.easeInOut,
+                        duration: Duration(milliseconds: 600),
+                        reverseDuration: Duration(milliseconds: 600),
+                        type: PageTransitionType.rightToLeftPop,
+                        child: SecondPage(),
+                        childCurrent: this));
+              },
+            ),
+            ElevatedButton(
+              child: Text('Left to Right Pop'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.leftToRightPop,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Top to Bottom Pop'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.topToBottomPop,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Bottom to Top Pop'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      alignment: Alignment.bottomCenter,
+                      curve: Curves.easeInOut,
+                      duration: Duration(milliseconds: 600),
+                      reverseDuration: Duration(milliseconds: 600),
+                      type: PageTransitionType.bottomToTopPop,
+                      child: SecondPage(),
+                      childCurrent: this),
+                );
+              },
+            ),
+            ElevatedButton(
               child: Text('PushNamed With arguments'),
               onPressed: () {
                 Navigator.pushNamed(
@@ -236,7 +346,7 @@ class SecondPage extends StatelessWidget {
     final args = ModalRoute.of(context)?.settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text(args as String? ?? "Page Transition Plugin"),
+        title: Text(args.toString()),
       ),
       body: Center(
         child: Column(
@@ -253,7 +363,9 @@ class SecondPage extends StatelessWidget {
                     duration: Duration(milliseconds: 300),
                     reverseDuration: Duration(milliseconds: 300),
                     type: PageTransitionType.topToBottom,
-                    child: ThirdPage(),
+                    child: ThirdPage(
+                      title: '',
+                    ),
                   ),
                 );
               },
@@ -272,7 +384,7 @@ class ThirdPage extends StatelessWidget {
   final String? title;
 
   /// second page constructor
-  const ThirdPage({Key? key, this.title}) : super(key: key);
+  const ThirdPage({Key? key, required this.title}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

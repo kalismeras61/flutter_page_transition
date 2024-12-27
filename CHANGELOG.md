@@ -75,20 +75,67 @@
 
 - update dart doc
 - added Curve for missing transitions
-- Breaking change: 
-  - PageTransitionType.upToDown renamed PageTransitionType.topToBottom 
+- Breaking change:
+  - PageTransitionType.upToDown renamed PageTransitionType.topToBottom
   - PageTransitionType.downToUp renamed PageTransitionType.bottomToTop
 
 ## [1.1.7+1] - Dartfmt
+
 - Runned dartfmt
 
 ## [1.1.7+2] - Update
+
 - update readme
+
 ## [1.1.7+3] - Added reverseTransitionDuration
+
 - Now you can set pop duration.
+
 ## [1.1.7+4] - Added new Transition methods
-- leftToRightJoined and rightToLeftJoined 
-## [1.1.7+5] - Remove null explicitly initialize
--  Remove null explicitly initialize
-## [1.1.7+6] - Fix issues
--  Fix incorrect transition and hero animation issue.
+
+- leftToRightJoined and rightToLeftJoined
+
+## [2.0.0-nullsafety.0] - Adds null safety check.
+
+- Adds null safety check.
+
+## [2.0.1-nullsafety.0] - remove test package
+
+- update example file and sdk
+
+## [2.0.2] - update example file and sdk
+
+## [2.0.3] - add fullscreen dialog mode
+
+- Set the `fullscreenDialog` to `true` to use this feature
+
+## [2.0.4] - add opaque
+
+- Set the `opaque` to `true` to use this feature
+
+## [2.0.5] - add opaque
+
+- Set the `opaque` to `true` to use this feature
+
+## [2.0.6] - add leftToRightPop , leftToRightPop
+
+- Added leftToRightPop, leftToRightPop
+
+## [2.0.7] - added error messages
+
+- Added error messages for scale
+
+## [2.0.8] - added error messages
+
+- Added IOS Swipe back feature for 2 transition.
+- Added new transitions
+
+## [2.0.9] - added error messages
+
+- Added IOS Swipe back feature for scale transition
+- Added new theme option for using theme transition
+
+## [2.1.0] - update dependencies
+
+- Update Dependencies
+- Added maintainstate as a prameter.
