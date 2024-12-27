@@ -124,6 +124,69 @@ final router = GoRouter(
 );
 ```
 
+### Using with AutoRoute
+
+First, define your routes:
+
+```dart
+@MaterialAutoRouter(
+  replaceInRouteName: 'Page,Route',
+  routes: <AutoRoute>[
+    AutoRoute(
+      page: HomePage,
+      initial: true,
+    ),
+    CustomRoute(
+      page: DetailsPage,
+      path: '/details/:id',
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return PageTransition(
+          type: PageTransitionType.sharedAxisHorizontal,
+          child: child,
+        ).buildTransitions(
+          context,
+          animation,
+          secondaryAnimation,
+          child,
+        );
+      },
+    ),
+    CustomRoute(
+      page: ProfilePage,
+      path: '/profile',
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return PageTransition(
+          type: PageTransitionType.sharedAxisVertical,
+          child: child,
+        ).buildTransitions(
+          context,
+          animation,
+          secondaryAnimation,
+          child,
+        );
+      },
+    ),
+  ],
+)
+class $AppRouter {}
+```
+
+Then use it in your app:
+
+```dart
+@override
+Widget build(BuildContext context) {
+  return MaterialApp.router(
+    routerDelegate: _appRouter.delegate(),
+    routeInformationParser: _appRouter.defaultRouteParser(),
+  );
+}
+
+// Navigate using AutoRoute
+context.router.push(DetailsRoute(id: 123)); // Will use shared axis horizontal
+context.router.push(const ProfileRoute()); // Will use shared axis vertical
+```
+
 ## Available Transition Types
 
 - `fade`
@@ -144,6 +207,9 @@ final router = GoRouter(
 - `rightToLeftPop`
 - `topToBottomPop`
 - `bottomToTopPop`
+- `sharedAxisHorizontal` (Material 3 style)
+- `sharedAxisVertical` (Material 3 style)
+- `sharedAxisScale` (Material 3 style)
 
 ## Additional Features
 
@@ -195,3 +261,80 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 ## License
 
 [BSD 2-Clause](https://opensource.org/licenses/BSD-2-Clause)
+
+## Advanced Usage
+
+### Shared Axis Transitions
+
+Material Design 3 style shared axis transitions:
+
+```dart
+// Horizontal shared axis
+context.pushTransition(
+  type: PageTransitionType.sharedAxisHorizontal,
+  child: DetailScreen(),
+  duration: Duration(milliseconds: 400),
+  curve: Curves.easeInOut,
+);
+
+// Vertical shared axis
+context.pushTransition(
+  type: PageTransitionType.sharedAxisVertical,
+  child: DetailScreen(),
+);
+
+// Scale shared axis
+context.pushTransition(
+  type: PageTransitionType.sharedAxisScale,
+  child: DetailScreen(),
+);
+```
+
+### Nested Navigation with Named Routes
+
+```dart
+MaterialApp(
+  onGenerateRoute: (settings) {
+    switch (settings.name) {
+      case '/details':
+        return PageTransition(
+          type: PageTransitionType.sharedAxisHorizontal,
+          settings: settings,
+          child: DetailsPage(),
+        );
+      case '/profile/settings':
+        return PageTransition(
+          type: PageTransitionType.sharedAxisVertical,
+          settings: settings,
+          child: SettingsPage(),
+        );
+    }
+  },
+);
+
+// Navigate using extensions
+context.pushNamedTransition(
+  routeName: '/details',
+  type: PageTransitionType.sharedAxisHorizontal,
+  arguments: {'id': 123},
+);
+```
+
+### Using with Navigation 2.0 (Router)
+
+```dart
+final router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/details/:id',
+      pageBuilder: (context, state) {
+        return PageTransition(
+          type: PageTransitionType.sharedAxisHorizontal,
+          child: DetailsPage(id: state.params['id']),
+          settings: RouteSettings(name: state.location),
+        );
+      },
+    ),
+  ],
+);
+```
