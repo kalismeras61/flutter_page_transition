@@ -144,3 +144,4 @@
 
 - Update Dependencies
 - fixed curved animations and sub sequent pages
+- Added helper functions for easy navigations!

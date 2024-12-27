@@ -5,6 +5,8 @@ void main() => runApp(MyApp());
 
 ///Example App
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,8 @@ class MyApp extends StatelessWidget {
 
 /// Example page
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +52,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: ListView(
+          padding: EdgeInsets.all(16),
           children: <Widget>[
             ElevatedButton(
               child: Text('Fade Second Page - Default'),
@@ -59,6 +64,17 @@ class MyHomePage extends StatelessWidget {
                     childBuilder: (context) => SecondPage(
                       title: 'Second Page from builder',
                     ),
+                  ),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Fade Second Page - Witn New Context'),
+              onPressed: () {
+                context.pushTransition(
+                  type: PageTransitionType.fade,
+                  childBuilder: (context) => SecondPage(
+                    title: 'Second Page from builder',
                   ),
                 );
               },
@@ -343,7 +359,7 @@ class SecondPage extends StatelessWidget {
   final String? title;
 
   /// second page constructor
-  const SecondPage({Key? key, this.title}) : super(key: key);
+  const SecondPage({super.key, this.title});
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments;
@@ -387,7 +403,7 @@ class ThirdPage extends StatelessWidget {
   final String? title;
 
   /// second page constructor
-  const ThirdPage({Key? key, required this.title}) : super(key: key);
+  const ThirdPage({super.key, required this.title});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
