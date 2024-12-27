@@ -139,3 +139,8 @@
 
 - Update Dependencies
 - Added maintainstate as a prameter.
+
+## [2.2.0] - update dependencies flutter 3.27 
+
+- Update Dependencies
+- fixed curved animations and sub sequent pages
