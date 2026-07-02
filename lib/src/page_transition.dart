@@ -130,7 +130,11 @@ class PageTransition<T> extends PageRouteBuilder<T> {
     final curvedAnimation = CurvedAnimation(parent: animation, curve: curve);
     final curvedSecondaryAnimation =
         CurvedAnimation(parent: secondaryAnimation, curve: curve);
-    switch (type) {
+    final activeType =
+        (animation.status == AnimationStatus.reverse && reverseType != null)
+            ? reverseType!
+            : type;
+    switch (activeType) {
       case PageTransitionType.theme:
         return Theme.of(context).pageTransitionsTheme.buildTransitions(
               this,
